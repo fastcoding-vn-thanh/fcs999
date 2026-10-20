@@ -1,7 +1,64 @@
-<%#
-  Component : footer
-  Status    : not generated
-
-  Replaced in step 2 (common components).
+<%
+  const arrow = { src: path + '/img/common/icn_arrow_right.svg' };
+  const ctas = [
+    {
+      modifier: 'l-footer__cta--deadline',
+      title: '案件について相談',
+      note: '希望納期をお知らせください',
+      href: '#',
+      icon: { src: path + '/img/common/ill_footer_consult.svg', width: 100, height: 101 },
+    },
+    {
+      modifier: 'l-footer__cta--price',
+      title: '概算見積もりを依頼',
+      note: 'デザイン制作途中でもお見積りが可能です',
+      href: '#',
+      icon: { src: path + '/img/common/ill_footer_estimate.svg', width: 107, height: 109 },
+    },
+  ];
 %>
-<footer></footer>
+<footer class="l-footer">
+  <img
+    class="l-footer__art"
+    src="<%= path %>/img/common/bg_footer.png"
+    alt="Background"
+    width="1440"
+    height="625"
+    aria-hidden="true"
+  />
+  <div class="l-footer__inner">
+    <p class="l-footer__label">CONTACT</p>
+    <h2 class="l-footer__title">中・大規模サイトのコーディングをご相談ください。</h2>
+    <p class="l-footer__lead">デザイン作成途中でも、代表ページやサイトマップがあればご相談いただけます。</p>
+    <ul class="l-footer__ctas">
+      <% ctas.forEach((cta) => { %>
+      <li>
+        <a class="l-footer__cta <%= cta.modifier %>" href="<%= cta.href %>" data-placeholder>
+          <img
+            class="l-footer__cta-icon"
+            src="<%= cta.icon.src %>"
+            alt="<%= cta.title %>"
+            width="<%= cta.icon.width %>"
+            height="<%= cta.icon.height %>"
+            aria-hidden="true"
+          />
+          <span class="l-footer__cta-body">
+            <span class="l-footer__cta-title">
+              <%= cta.title %>
+              <img
+                class="l-footer__cta-arrow"
+                src="<%= arrow.src %>"
+                alt="Arrow"
+                width="32"
+                height="22"
+                aria-hidden="true"
+              />
+            </span>
+            <span class="l-footer__cta-note"><%= cta.note %></span>
+          </span>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</footer>

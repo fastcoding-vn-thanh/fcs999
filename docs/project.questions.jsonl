@@ -1,1 +1,2 @@
 {"id": "Q-001", "date": "2026-10-21", "question": "Avenir / Avenir Next have no web build: keep the Outfit fallback, supply a licensed web font to self-host in src/font/, or settle on Outfit alone?", "status": "open", "refs": ["D-012"]}
+{"id": "Q-002", "date": "2026-10-21", "question": "Where do the header nav (4), header pills (2), search icon and footer CTAs (2) link to? Also: can footer-bg get an export setting or be split without the red fill?", "status": "open", "refs": ["D-016"]}

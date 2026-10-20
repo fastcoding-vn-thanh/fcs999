@@ -1,6 +1,224 @@
-/* Status : not generated
- * Replaced in the layout step, with common/parts/header.ejs. */
+@use "sass:map";
+@use "../foundation/variables" as v;
+@use "../foundation/mixins" as *;
 
+/* Below lg the header is one 56px row (logo and a hamburger) and the menu drops down from it
+ * as a red panel; from lg the menu wrapper is `display: contents`, so the nav and the actions
+ * become flex items of the one 80px row the design draws. The red block is a clipped
+ * pseudo-element, its slant 0.86 x the row height (design: 68.8 across 80). */
 .l-header {
   position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  height: 5.6rem;
+  padding: 0 1.2rem;
+  background-color: #fff;
+  font-family: map.get(v.$font, en);
+  font-weight: 700;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 13.4rem;
+    height: 5.6rem;
+    background-color: map.get(v.$color, header);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 4.8rem 100%);
+  }
+
+  @include mq("lg") {
+    height: 8rem;
+    padding: 0 4.2rem 0 2.5rem;
+
+    &::before {
+      left: auto;
+      width: 115.6rem;
+      max-width: calc(100% - 20rem);
+      height: 8rem;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 6.88rem 100%);
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+    width: 13rem;
+    height: 1.37rem;
+
+    @include mq("lg") {
+      width: 17.5rem;
+      height: 1.83rem;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    @include mq("lg") {
+      display: none;
+    }
+  }
+
+  &__toggle-bar {
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background-color: #fff;
+    transition:
+      transform 0.2s,
+      opacity 0.2s;
+  }
+
+  &.is-open &__toggle-bar {
+    &:nth-child(1) {
+      transform: translateY(0.8rem) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-0.8rem) rotate(-45deg);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 5.6rem;
+    right: 0;
+    left: 0;
+    display: none;
+    max-height: calc(100vh - 5.6rem);
+    overflow-y: auto;
+    background-color: map.get(v.$color, header);
+  }
+
+  &.is-open &__menu {
+    display: block;
+  }
+
+  &__nav {
+    position: relative;
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-link {
+    display: block;
+    padding: 1.6rem 2rem;
+    border-top: 1px solid map.get(v.$color, primary-dark);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.3;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.3rem;
+    }
+  }
+
+  &__actions {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem 2rem 2.4rem;
+    border-top: 1px solid map.get(v.$color, primary-dark);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    padding: 0 2.4rem;
+    border-radius: 4rem;
+    background-color: #fff;
+    color: map.get(v.$color, text-primary);
+    font-size: 1.2rem;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: map.get(v.$color, bg-primary);
+    }
+  }
+
+  &__search {
+    display: block;
+    margin-left: 0.6rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  @include mq("lg") {
+    &__menu,
+    &.is-open &__menu {
+      position: static;
+      display: contents;
+    }
+
+    &__nav {
+      margin: 0 2rem 0 auto;
+    }
+
+    &__nav-list {
+      flex-direction: row;
+      gap: 1.2rem;
+    }
+
+    &__nav-link {
+      padding: 0;
+      border-top: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    &__actions {
+      gap: 1rem;
+      padding: 0;
+      border-top: 0;
+    }
+
+    &__action--estimate {
+      min-width: 15.3rem;
+    }
+
+    &__action--contact {
+      min-width: 9.5rem;
+    }
+  }
+
+  @include mq("xl") {
+    &__nav {
+      margin-right: 3.1rem;
+    }
+
+    &__nav-list {
+      gap: 2rem;
+    }
+  }
 }

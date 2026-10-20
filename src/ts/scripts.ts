@@ -55,6 +55,44 @@
     });
   };
 
+  /** Header menu: the .js-header-toggle hamburger opens the panel below the lg breakpoint (1024). */
+  const headerMenu = (): void => {
+    const header = document.querySelector<HTMLElement>('.js-header');
+    const toggle = document.querySelector<HTMLButtonElement>('.js-header-toggle');
+    if (!header || !toggle) {
+      return;
+    }
+
+    const setOpen = (open: boolean): void => {
+      header.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    header.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('.l-header__menu a')) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+      if (event.matches) {
+        setOpen(false);
+      }
+    });
+  };
+
   /** Smooth-scroll in-page anchors, offset by any sticky header. */
   const smoothScroll = (): void => {
     const header = document.querySelector<HTMLElement>('header');
@@ -103,6 +141,7 @@
   const init = (): void => {
     detectBrowsers();
     drawer();
+    headerMenu();
     smoothScroll();
   };
 

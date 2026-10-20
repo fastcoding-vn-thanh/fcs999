@@ -1,8 +1,59 @@
-<%#
-  Component : header
-  Status    : not generated
-
-  Replaced in step 2 (common components). Keep the element so layouts/head.ejs
-  has something to include and the build stays green.
+<%
+  const navItems = [
+    { label: 'コーディング代行', href: '#' },
+    { label: 'kintoneアプリ開発', href: '#' },
+    { label: 'React/Vue.js開発', href: '#' },
+    { label: 'WordPress制作', href: '#' },
+  ];
+  const actions = [
+    { label: '自動見積り', href: '#', modifier: 'l-header__action--estimate' },
+    { label: 'お問合せ', href: '#', modifier: 'l-header__action--contact' },
+  ];
 %>
-<header class="js-header"></header>
+<header class="l-header js-header">
+  <a href="<%= path %>/">
+    <img
+      class="l-header__logo"
+      src="<%= path %>/img/common/logo_fastcoding.png"
+      alt="FASTCODING"
+      width="175"
+      height="18"
+    />
+  </a>
+  <button
+    class="l-header__toggle js-header-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="header-menu"
+    aria-label="メニューを開く"
+  >
+    <span class="l-header__toggle-bar"></span>
+    <span class="l-header__toggle-bar"></span>
+    <span class="l-header__toggle-bar"></span>
+  </button>
+  <div class="l-header__menu" id="header-menu">
+    <nav class="l-header__nav" aria-label="メインメニュー">
+      <ul class="l-header__nav-list">
+        <% navItems.forEach((item) => { %>
+        <li><a class="l-header__nav-link" href="<%= item.href %>" data-placeholder><%= item.label %></a></li>
+        <% }) %>
+      </ul>
+    </nav>
+    <ul class="l-header__actions">
+      <% actions.forEach((action) => { %>
+      <li><a class="l-header__action <%= action.modifier %>" href="<%= action.href %>" data-placeholder><%= action.label %></a></li>
+      <% }) %>
+      <li>
+        <a class="l-header__search" href="#" aria-label="検索" data-placeholder>
+          <img
+            src="<%= path %>/img/common/icn_search.png"
+            alt="Search"
+            width="21"
+            height="20"
+            aria-hidden="true"
+          />
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
