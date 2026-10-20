@@ -1,0 +1,23 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "quality",
+    pageTitle: "品質への取り組み",
+    pageDescription: "Figma分析、表示比較、コード監査、専任QCの方法と、完了条件をご確認いただけます。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('quality/_components/hero.ejs', page) %>
+<%- include('quality/_components/approach.ejs', page) %>
+<%- include('quality/_components/qualitystandard.ejs', page) %>
+<%- include('quality/_components/analysis-1.ejs', page) %>
+<%- include('quality/_components/analysis-2.ejs', page) %>
+<%- include('quality/_components/cta.ejs', page) %>
+<%- include('quality/_components/comparison.ejs', page) %>
+<%- include('quality/_components/review.ejs', page) %>
+<%- include('quality/_components/banner.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

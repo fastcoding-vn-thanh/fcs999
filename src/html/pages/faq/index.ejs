@@ -1,0 +1,21 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "faq",
+    pageTitle: "よくある質問",
+    pageDescription: "対象案件、品質、AIMES、見積り・納期に関するよくある質問をまとめています。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('faq/_components/hero.ejs', page) %>
+<%- include('faq/_components/search.ejs', page) %>
+<%- include('faq/_components/requirements.ejs', page) %>
+<%- include('faq/_components/ai-quality.ejs', page) %>
+<%- include('faq/_components/capabilities.ejs', page) %>
+<%- include('faq/_components/estimate-delivery.ejs', page) %>
+<%- include('faq/_components/more-information.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "variables" as v;
+
+/* The only breakpoint mixin. An agent writes the small screen unprefixed and the
+ * desktop inside `@include mq(md)`; the range from 768 to the design width is a
+ * person's one pass afterwards (TW-14, TW-15).
+ *
+ * CLASSIC `min-width`, NOT THE RANGE SYNTAX the Tailwind flavour writes. Tailwind's
+ * Lightning CSS pass downlevels `(width >= 48rem)` for older browsers on the way out;
+ * this path has Sass and autoprefixer, and autoprefixer adds prefixes without
+ * rewriting a media query. So the output here is what is written here, and
+ * `min-width` is the form every browser reads.
+ *
+ * THE PRINT BRANCH IS K-49 AND IT IS NOT OPTIONAL. Under the Tailwind flavour
+ * `@custom-variant md` matches `(width >= 48rem)` OR `print`, because paper narrower
+ * than 768 was printing the small-screen layout. A mixin that emits the width query
+ * alone reintroduces that bug in a flavour where nobody will think to look for it. */
+@mixin mq($name) {
+  @if not map.has-key(v.$breakpoint, $name) {
+    @error "mq(): no breakpoint named `#{$name}` - $breakpoint has #{map.keys(v.$breakpoint)}";
+  }
+
+  $value: map.get(v.$breakpoint, $name);
+
+  @media (min-width: #{$value}) {
+    @content;
+  }
+
+  @if $name == "md" {
+    @media print {
+      @content;
+    }
+  }
+}

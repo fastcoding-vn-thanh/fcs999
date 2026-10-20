@@ -1,0 +1,21 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "feature03",
+    pageTitle: "AIに丸投げしない",
+    pageDescription: "AIハイブリットコーディングの特長03。AIへ任せる作業と、人が判断すべき作業をどのように分けるのかをご説明します。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('feature03/_components/hero.ejs', page) %>
+<%- include('feature03/_components/reason.ejs', page) %>
+<%- include('feature03/_components/service.ejs', page) %>
+<%- include('feature03/_components/comparison.ejs', page) %>
+<%- include('feature03/_components/flow.ejs', page) %>
+<%- include('feature03/_components/conclusion.ejs', page) %>
+<%- include('feature03/_components/navigation.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

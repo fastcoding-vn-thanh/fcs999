@@ -1,0 +1,19 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "figma-guideline",
+    pageTitle: "Figma入稿ガイドライン",
+    pageDescription: "Figmaを共有する前に、必須事項と仕様補足の不足がないかご確認ください。入稿前チェックリストを掲載しています。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('figma-guideline/_components/hero.ejs', page) %>
+<%- include('figma-guideline/_components/requirements.ejs', page) %>
+<%- include('figma-guideline/_components/essentials.ejs', page) %>
+<%- include('figma-guideline/_components/specification.ejs', page) %>
+<%- include('figma-guideline/_components/checklist.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

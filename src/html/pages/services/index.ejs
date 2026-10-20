@@ -1,0 +1,18 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "services",
+    pageTitle: "サービス内容",
+    pageDescription: "依頼できる実装内容と、個別仕様の扱いを確認できます。細かな条件は問い合わせ後のヒアリングと提案時に整理します。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('services/_components/hero.ejs', page) %>
+<%- include('services/_components/capabilities.ejs', page) %>
+<%- include('services/_components/requirements.ejs', page) %>
+<%- include('services/_components/banner.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

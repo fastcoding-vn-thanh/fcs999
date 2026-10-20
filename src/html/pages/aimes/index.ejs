@@ -1,0 +1,19 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "aimes",
+    pageTitle: "AIMES",
+    pageDescription: "AIエージェント、コーダー、専任QC、検査ツールを一つのWorkflowとして動かし、検査、修正、再確認、完了条件を管理します。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('aimes/_components/hero.ejs', page) %>
+<%- include('aimes/_components/about.ejs', page) %>
+<%- include('aimes/_components/benefit.ejs', page) %>
+<%- include('aimes/_components/service.ejs', page) %>
+<%- include('aimes/_components/banner.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

@@ -1,0 +1,29 @@
+/* --------------------------------------------------------------------------
+ * The manifest. @use lines in layer order, and nothing else.
+ *
+ * FLOCSS layers, outermost first: foundation -> layout -> object
+ * (component -> project -> utility) -> page. The order here IS the cascade
+ * order, so it is the only place layer order lives - a second copy of it would
+ * eventually disagree with this one (the argument TPL-07 makes for a page file).
+ *
+ * The section step adds one line per partial it writes, in its layer's block.
+ * A partial that is not listed emits nothing; `fa audit-classes` is what says so.
+ *
+ * No @charset here: Dart Sass emits one itself when the output needs it, and a
+ * literal @charset inside a module would not be first in the compiled file.
+ *
+ * >> HANDING OFF TO WORDPRESS / VUE / REACT? <<
+ * Nothing to configure. Unlike the Tailwind flavour, this stylesheet does not
+ * scan the markup - every rule here exists whether or not a class uses it, so
+ * the client's own templates can use these classes with no build step.
+ * -------------------------------------------------------------------------- */
+
+@use "foundation/variables";
+@use "foundation/reset";
+@use "foundation/base";
+
+@use "layout/page";
+@use "layout/header";
+@use "layout/footer";
+
+@use "object/utility/visibility";

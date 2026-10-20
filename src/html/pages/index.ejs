@@ -1,0 +1,22 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: ".",
+    pageID: "top",
+    pageTitle: "中・大規模サイトのコーディング | AIハイブリットコーディング",
+    pageDescription: "原則として総ページ数40ページ以上の中・大規模サイトのコーディングをご相談ください。デザイン作成途中でも、代表ページやサイトマップがあればご相談いただけます。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('_components/hero.ejs', page) %>
+<%- include('_components/problems.ejs', page) %>
+<%- include('_components/solution.ejs', page) %>
+<%- include('_components/quality.ejs', page) %>
+<%- include('_components/pricing.ejs', page) %>
+<%- include('_components/results.ejs', page) %>
+<%- include('_components/orderflow.ejs', page) %>
+<%- include('_components/faq.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>

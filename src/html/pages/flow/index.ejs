@@ -1,0 +1,19 @@
+<%#
+  generated from docs/project.json - edit the sitemap and re-run `fa scaffold`.
+  Page-specific markup belongs in a section, not here.
+%>
+<%
+  const page = {
+    path: "..",
+    pageID: "flow",
+    pageTitle: "ご依頼の流れ",
+    pageDescription: "大量ページの品質を含めてご相談ください。ご依頼前の資料確認から、制作中の確認、納品までの流れをご説明します。",
+  };
+%>
+<%- include('layouts/head.ejs', page) %>
+<%- include('flow/_components/hero.ejs', page) %>
+<%- include('flow/_components/documents.ejs', page) %>
+<%- include('flow/_components/before-order.ejs', page) %>
+<%- include('flow/_components/after-order.ejs', page) %>
+<%- include('flow/_components/banner.ejs', page) %>
+<%- include('layouts/foot.ejs', page) %>
