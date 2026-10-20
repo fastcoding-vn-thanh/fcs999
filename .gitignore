@@ -1,0 +1,32 @@
+*~
+*.bak
+*.log
+*.sql
+*.sqlite
+.htaccess
+.htpasswd
+.Trashes
+.DS_Store
+*.tmproj
+Thumbs.db
+Desktop.ini
+node_modules
+
+# Secrets - Figma personal access token
+.env
+
+# Figma sitemap drafts - regenerate with `fa sitemap-draft`
+docs/figma-sitemap.raw.json
+docs/project.draft.json
+docs/project.state.json.lock
+
+# verify-design screenshots - every `fa verify-design --out` rewrites them (K-29)
+docs/vd/
+
+# Working build output - npm run dev and npm run build:fast write here.
+# dist/ is the deliverable and is written by `npm run build` alone.
+.tmp/
+
+# dist/ is NOT ignored: it is the deliverable and is tracked in git by default,
+# so `git status` shows when the deliverable moved. It has exactly one writer,
+# `npm run build`; every working build goes to .tmp/ above.

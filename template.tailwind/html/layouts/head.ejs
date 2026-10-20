@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="<%= site.lang || 'ja' %>">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="<%= locals.pageDescription || '' %>" />
+    <title><%= locals.pageTitle || '' %></title>
+    <link rel="stylesheet" href="<%= locals.path || '.' %>/css/style.css" />
+  </head>
+  <body class="page-<%= locals.pageID || 'index' %> bg-white text-text">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-[1rem] focus:left-[1rem] focus:z-[60] focus:rounded-[0.3rem] focus:bg-primary focus:px-[1.6rem] focus:py-[1rem] focus:text-[1.4rem] focus:font-bold focus:text-white"
+      ><%= site.skipLink || '本文へスキップ' %></a
+    >
+    <div class="flex min-h-screen flex-col">
+      <%- include('common/parts/header.ejs') %>
+      <main id="main" tabindex="-1" class="flex-1">

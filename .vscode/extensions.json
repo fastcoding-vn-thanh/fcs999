@@ -1,0 +1,16 @@
+{
+  // settings.json maps the `ejs` language to HTML for Tailwind IntelliSense and
+  // Emmet. That language id only exists once an EJS extension is installed, so
+  // this file is the other half of that setting.
+  //
+  // The Tailwind extension is inert on a bem project and the Stylelint one is useful on
+  // both, so this list is not split by flavour - an unused recommendation costs nothing,
+  // and a project that changes hands should not need its editor config rewritten.
+  "recommendations": [
+    "DigitalBrainstem.javascript-ejs-support",
+    "bradlc.vscode-tailwindcss",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig"
+  ]
+}

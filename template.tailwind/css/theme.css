@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/* Design tokens, generated from the Figma variables (get_variable_defs), not hand-kept.
+ * --color-primary becomes bg-primary, text-primary, ...; emit only what the design defines.
+ * Breakpoints stay Tailwind's defaults (sm 640 / md 768 / lg 1024 / xl 1280 / 2xl 1536). */
+
+@theme {
+  /* Placeholders - src/css/base.css needs these two. Replace in step 1b. */
+  --color-text: #333;
+  --font-sans:
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", yugothic, meiryo, sans-serif;
+}
+
+/* md: also matches in print, so a narrow paper prints the PC view. */
+
+@custom-variant md {
+  @media (width >= 48rem) {
+    @slot;
+  }
+
+  @media print {
+    @slot;
+  }
+}

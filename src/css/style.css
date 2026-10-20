@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* --------------------------------------------------------------------------
+ * Tailwind CSS v4 entry point.
+ *
+ * All configuration lives in CSS - there is no tailwind.config.js in v4.
+ *   theme tokens  -> src/css/theme.css  (@theme)
+ *   element base  -> src/css/base.css
+ *   components    -> src/css/components.css
+ * -------------------------------------------------------------------------- */
+
+@import "tailwindcss" source(none);
+@import "./theme.css";
+@import "./base.css";
+@import "./components.css";
+
+/* --------------------------------------------------------------------------
+ * Content sources.
+ *
+ * `source(none)` above disables auto-detection so the scanned paths are
+ * explicit. Only the templates are scanned, so a class has to appear
+ * literally in one - a class built by string concatenation in a scriptlet
+ * never reaches the stylesheet.
+ *
+ * >> HANDING OFF TO WORDPRESS / VUE / REACT? <<
+ * Add the client's template directory here, otherwise classes that exist only
+ * in their files will be missing from the compiled CSS:
+ *
+ *   @source "../../wp-content/themes/YOUR_THEME/**\/*.php";
+ *   @source "../../resources/js/**\/*.{vue,jsx,tsx}";
+ * -------------------------------------------------------------------------- */
+
+/* One source, and it is src/. There used to be a second line scanning the build
+   output, `@source "../../dist/**\/*.html"`. Measured over full builds with and
+   without it: the compiled CSS is byte-identical, so it was contributing nothing -
+   every utility is already a literal string in src/html. Removing it means the
+   stylesheet no longer depends on the output directory at all, which is what lets
+   `npm run dev` and `npm run build:fast` write .tmp/ while dist/ holds the
+   deliverable. If a class ever comes from rendered data rather than from a
+   template, it will be missing here and `audit-classes.py` is what says so. */
+@source "../html/**/*.ejs";
+
+/* --------------------------------------------------------------------------
+ * Safelist - utilities to emit even when nothing in the markup uses them.
+ *
+ * Enable this when the client will extend the markup WITHOUT running the build.
+ * It costs a few KB and prevents "I added mt-20 and nothing happened".
+ * Leave it off when the client runs `npm run build` themselves.
+ * -------------------------------------------------------------------------- */
+
+/* @source inline("{hover:,focus:,md:,lg:,}{m,p}{t,r,b,l,x,y,}-{0,1,2,3,4,5,6,8,10,12,16,20,24}"); */
+/* @source inline("{md:,lg:,}text-{xs,sm,base,lg,xl,2xl,3xl,4xl,5xl}"); */

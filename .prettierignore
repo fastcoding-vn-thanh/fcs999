@@ -1,0 +1,17 @@
+dist
+node_modules
+package-lock.json
+
+# src/html is EJS, not HTML. Prettier has no parser for .ejs and skips it on
+# its own, but an editor or a plugin that maps .ejs to its html parser would
+# not know `<%` from text - measured on the Nunjucks sources this kit used to
+# ship, that rewrote 49 of 51 files and deleted every attribute inside a
+# conditional, at exit code 0. Nothing formats a
+# source template here - `npm run lint:fix:html` sorts the class VALUES in place
+# and touches no other byte, and the formatter proper runs on dist/, which is
+# pure HTML by then. This entry is what stops `npx prettier --write .` and
+# format-on-save from doing it anyway.
+#
+# It does not affect the build: gulp-prettier calls prettier.format() directly
+# and never reads this file, which is also why `dist` above costs nothing.
+src/html

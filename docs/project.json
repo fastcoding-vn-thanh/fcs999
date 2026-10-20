@@ -1,0 +1,383 @@
+{
+  "project": {
+    "name": "fcs999",
+    "lang": "ja",
+    "css": "bem",
+    "designWidth": 1440,
+    "spWidth": 390,
+    "contentWidth": 0
+  },
+  "figma": {
+    "fileKey": "KyNk93Eshiz4NPhNhGKIVa"
+  },
+  "sitemap": [
+    {
+      "id": "top",
+      "path": "/",
+      "design": "1517:3602",
+      "title": "中・大規模サイトのコーディング | AIハイブリットコーディング",
+      "description": "原則として総ページ数40ページ以上の中・大規模サイトのコーディングをご相談ください。デザイン作成途中でも、代表ページやサイトマップがあればご相談いただけます。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1517:3815"
+        },
+        {
+          "name": "problems",
+          "design": "1517:3796"
+        },
+        {
+          "name": "solution",
+          "design": "1517:3728"
+        },
+        {
+          "name": "quality",
+          "design": "1517:3686"
+        },
+        {
+          "name": "pricing",
+          "design": "1517:3652"
+        },
+        {
+          "name": "results",
+          "design": "1517:3641"
+        },
+        {
+          "name": "orderflow",
+          "design": "1531:9393"
+        },
+        {
+          "name": "faq",
+          "design": "1535:9824"
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "path": "/flow/",
+      "design": "1517:4668",
+      "title": "ご依頼の流れ",
+      "description": "大量ページの品質を含めてご相談ください。ご依頼前の資料確認から、制作中の確認、納品までの流れをご説明します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1517:4875"
+        },
+        {
+          "name": "documents",
+          "design": "1517:4846"
+        },
+        {
+          "name": "before-order",
+          "design": "1517:4753"
+        },
+        {
+          "name": "after-order",
+          "design": "1517:4694"
+        }
+      ]
+    },
+    {
+      "id": "figma-guideline",
+      "path": "/figma-guideline/",
+      "design": "1520:5068",
+      "title": "Figma入稿ガイドライン",
+      "description": "Figmaを共有する前に、必須事項と仕様補足の不足がないかご確認ください。入稿前チェックリストを掲載しています。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1520:5375"
+        },
+        {
+          "name": "requirements",
+          "design": "1520:5328"
+        },
+        {
+          "name": "essentials",
+          "design": "1520:5172"
+        },
+        {
+          "name": "specification",
+          "design": "1520:5133"
+        },
+        {
+          "name": "checklist",
+          "design": "1520:5095"
+        }
+      ]
+    },
+    {
+      "id": "aimes",
+      "path": "/aimes/",
+      "design": "1520:5563",
+      "title": "AIMES",
+      "description": "AIエージェント、コーダー、専任QC、検査ツールを一つのWorkflowとして動かし、検査、修正、再確認、完了条件を管理します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1602:6237"
+        },
+        {
+          "name": "about",
+          "design": "1653:4903"
+        },
+        {
+          "name": "benefit",
+          "design": "1653:4905"
+        },
+        {
+          "name": "service",
+          "design": "1520:5593"
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "path": "/faq/",
+      "design": "1520:6086",
+      "title": "よくある質問",
+      "description": "対象案件、品質、AIMES、見積り・納期に関するよくある質問をまとめています。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1520:6204"
+        },
+        {
+          "name": "search",
+          "design": "1520:6177"
+        },
+        {
+          "name": "requirements",
+          "design": "1520:6162"
+        },
+        {
+          "name": "ai-quality",
+          "design": "1520:6146"
+        },
+        {
+          "name": "capabilities",
+          "design": "1520:6131"
+        },
+        {
+          "name": "estimate-delivery",
+          "design": "1520:6117"
+        },
+        {
+          "name": "more-information",
+          "design": "1520:6105"
+        }
+      ]
+    },
+    {
+      "id": "feature01",
+      "path": "/feature01/",
+      "design": "1520:6580",
+      "title": "AIで1画面は作れても、サイト全体の品質は揃わない",
+      "description": "AIハイブリットコーディングの特長01。小規模では直せても、大規模では破綻する理由を説明します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1520:7076"
+        },
+        {
+          "name": "reason",
+          "design": "1520:6971"
+        },
+        {
+          "name": "about",
+          "design": "1520:6609"
+        },
+        {
+          "name": "banner",
+          "design": "1820:3053"
+        },
+        {
+          "name": "navigation",
+          "design": "1683:7221"
+        }
+      ]
+    },
+    {
+      "id": "feature02",
+      "path": "/feature02/",
+      "design": "1520:7113",
+      "title": "小規模では直せても、大規模では破綻する",
+      "description": "AIハイブリットコーディングの特長02。サイト全体の構造を先に定め、変更の影響範囲と検査状態をページ横断で管理します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1683:7458"
+        },
+        {
+          "name": "about",
+          "design": "1683:7954"
+        },
+        {
+          "name": "flow",
+          "design": "1520:7141"
+        },
+        {
+          "name": "banner",
+          "design": "1820:3097"
+        },
+        {
+          "name": "navigation",
+          "design": "1683:8204"
+        }
+      ]
+    },
+    {
+      "id": "feature03",
+      "path": "/feature03/",
+      "design": "1520:7420",
+      "title": "AIに丸投げしない",
+      "description": "AIハイブリットコーディングの特長03。AIへ任せる作業と、人が判断すべき作業をどのように分けるのかをご説明します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1711:2724"
+        },
+        {
+          "name": "reason",
+          "design": "1520:7873"
+        },
+        {
+          "name": "service",
+          "design": "1722:3324"
+        },
+        {
+          "name": "comparison",
+          "design": "1520:7509"
+        },
+        {
+          "name": "flow",
+          "design": "1520:7461"
+        },
+        {
+          "name": "conclusion",
+          "design": "1820:3142"
+        },
+        {
+          "name": "navigation",
+          "design": "1722:3637"
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "path": "/quality/",
+      "design": "1653:3929",
+      "title": "品質への取り組み",
+      "description": "Figma分析、表示比較、コード監査、専任QCの方法と、完了条件をご確認いただけます。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1653:4237"
+        },
+        {
+          "name": "approach",
+          "design": "1653:4222"
+        },
+        {
+          "name": "qualitystandard",
+          "design": "1653:4179"
+        },
+        {
+          "name": "analysis-1",
+          "design": "1653:4143"
+        },
+        {
+          "name": "analysis-2",
+          "design": "1653:4107"
+        },
+        {
+          "name": "cta",
+          "design": "1653:4038"
+        },
+        {
+          "name": "comparison",
+          "design": "1653:4002"
+        },
+        {
+          "name": "review",
+          "design": "1653:3966"
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "path": "/services/",
+      "design": "1653:6482",
+      "title": "サービス内容",
+      "description": "依頼できる実装内容と、個別仕様の扱いを確認できます。細かな条件は問い合わせ後のヒアリングと提案時に整理します。",
+      "sections": [
+        {
+          "name": "hero",
+          "design": "1653:6587"
+        },
+        {
+          "name": "capabilities",
+          "design": "1653:6572"
+        },
+        {
+          "name": "requirements",
+          "design": "1653:6523"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "header",
+      "design": "1517:3978"
+    },
+    {
+      "name": "footer",
+      "design": "1275:1782"
+    },
+    {
+      "name": "banner-aimes",
+      "design": "1820:2960"
+    },
+    {
+      "name": "button-more",
+      "design": "1535:9740"
+    },
+    {
+      "name": "faq-question",
+      "design": "1215:5249"
+    },
+    {
+      "name": "faq-answer",
+      "design": "1458:3547"
+    },
+    {
+      "name": "back-to-home",
+      "design": "1825:5584"
+    },
+    {
+      "name": "navigation-button01",
+      "design": "1820:3203"
+    },
+    {
+      "name": "navigation-button02",
+      "design": "1820:3254"
+    },
+    {
+      "name": "navigation-button03",
+      "design": "1825:3324"
+    },
+    {
+      "name": "navigation-button04",
+      "design": "1825:4819"
+    },
+    {
+      "name": "banner",
+      "design": "1820:2827"
+    },
+    {
+      "name": "button-contact",
+      "design": "1602:5418"
+    }
+  ]
+}

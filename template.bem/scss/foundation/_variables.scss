@@ -1,0 +1,38 @@
+/* Design tokens, generated from the Figma variables (get_variable_defs), not hand-kept.
+ * Emit only what the design defines; replace these placeholders in the tokens step.
+ *
+ * TWO FORMS OF THE SAME TOKEN, on purpose (K-50):
+ *   :root  the custom property. It survives into the delivered CSS, so the client can
+ *          retheme after carrying the stylesheet into WordPress, and a reader can see
+ *          the design system in the output.
+ *   $map   what the object and page layers write. `map.get($color, primray)` fails the
+ *          build; a hand-written `var(--color-primray)` resolves to nothing, silently.
+ * The map's values ARE the custom properties, so there is one source of truth. */
+
+:root {
+  --color-text: #333;
+  --font-sans:
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", yugothic, meiryo, sans-serif;
+}
+
+$color: (
+  text: var(--color-text),
+);
+$font: (
+  sans: var(--font-sans),
+);
+
+/* Tailwind's defaults, which this flavour keeps so the two are comparable.
+ *
+ * IN REM, AND THE REASON IS NOT THE ONE IT LOOKS LIKE (TW-22). A length in a media
+ * query is resolved against the browser's initial font size, never against this
+ * document's `font-size: 62.5%`, so `48rem` here is 768px and not 480px. Declared in
+ * px it would still be 768px - what rem buys is that a reader who has enlarged their
+ * default text gets the layout that fits the text they actually see. */
+$breakpoint: (
+  "sm": 40rem,
+  "md": 48rem,
+  "lg": 64rem,
+  "xl": 80rem,
+  "2xl": 96rem,
+);

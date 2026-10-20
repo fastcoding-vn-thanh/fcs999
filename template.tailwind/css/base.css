@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* Element defaults on top of Preflight. Reusable -> components.css, one-off -> utilities. */
+
+@layer base {
+  html {
+    /* Root 10px: a rem length is the design's number / 10 (TW-18). 62.5% keeps the reader's text size. */
+    font-size: 62.5%;
+  }
+
+  /* Below md the root follows the viewport: 100vw / (spWidth / 10), 39 for a 390 artboard.
+   * Set by the tokens step; keep it in step with project.spWidth. */
+  @media screen and (width < 768px) {
+    html {
+      font-size: calc(100vw / 39);
+    }
+  }
+
+  /* Smooth scroll only if the reader allows motion (WCAG 2.3.3). */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Focus floor for unstyled elements (SEM-11); a focus-visible: utility overrides it. */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  body {
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    line-height: 1.7;
+    word-break: break-word;
+    min-width: 320px;
+  }
+
+  @media (width >= 768px), print {
+    body {
+      font-size: 1.6rem;
+    }
+  }
+
+  /* Print is the PC view: smaller text, backgrounds kept. */
+  @media print {
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-size: 1.2rem;
+    }
+  }
+}

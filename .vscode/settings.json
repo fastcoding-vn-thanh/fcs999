@@ -1,0 +1,48 @@
+{
+  // src/html holds EJS templates (.ejs). The language id comes from the EJS
+  // extension recommended in extensions.json; without it .ejs is plain text.
+  // dist/ stays real HTML and keeps every HTML feature, which is what you want
+  // when reading what the client receives.
+
+  // Tailwind IntelliSense and Emmet key off the language id, so both need to be
+  // told that ejs is HTML - otherwise class-name completion, the thing that
+  // matters most day to day, is lost inside a template.
+  //
+  // THE tailwindCSS.* KEYS ARE INERT ON A BEM PROJECT (K-50) and are left here rather
+  // than split into two files: the extension finds no stylesheet and does nothing. The
+  // thing a bem project wants instead is Stylelint, below, which reads the `overrides`
+  // block in .stylelintrc.json and so enforces BEM-01 and BEM-03 as you type.
+  "tailwindCSS.includeLanguages": {
+    "ejs": "html"
+  },
+  "tailwindCSS.experimental.configFile": "src/css/style.css",
+
+  // src/css/base.css anchors the root at 62.5% (1rem = 10px), so `mt-[2.3rem]`
+  // is the design's 23px (TW-18). IntelliSense assumes 16px unless told
+  // otherwise, and would show that same class as 36.8px on hover. This is the
+  // desktop root; below --breakpoint-pc the root is viewport-derived, so the
+  // hover value there is the value at the SP artboard width.
+  "tailwindCSS.rootFontSize": 10,
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+
+  // Never format a source template. An HTML formatter pointed at a template
+  // deletes attributes inside conditionals and reports success;
+  // .prettierignore covers the CLI and the Prettier extension, and this covers
+  // whatever else registers itself as a formatter for this language.
+  "[ejs]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+
+  // Class order in src/html is a lint step, not a formatter one:
+  //   npm run lint:fix:html
+  // sorts the class values in place and touches no other byte.
+  "editor.formatOnSave": false,
+
+  // Both flavours lint CSS; only the bem one has .scss files to lint.
+  "stylelint.validate": ["css", "scss"],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
+}
