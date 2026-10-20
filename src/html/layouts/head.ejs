@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<%= locals.path || '.' %>/css/style.css" />
   </head>
   <body class="page-<%= locals.pageID || 'index' %>">
-    <a href="#main" class="l-skip-link"><%= site.skipLink || '本文へスキップ' %></a>
+    <a href="#main" class="l-skip-link js-no-scroll"><%= site.skipLink || '本文へスキップ' %></a>
     <div class="l-page">
       <%- include('common/parts/header.ejs') %>
       <main id="main" tabindex="-1" class="l-page__main">

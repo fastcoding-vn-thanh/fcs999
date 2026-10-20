@@ -1,9 +1,5 @@
 /** Site scripts: vanilla TypeScript, no dependencies. */
 ((): void => {
-  const SP_BREAKPOINT = 767.98;
-
-  const isMobile = (): boolean => window.matchMedia(`(max-width: ${SP_BREAKPOINT}px)`).matches;
-
   /** Tag <html> with the current browser/OS so CSS can special-case it. */
   const detectBrowsers = (): void => {
     const root = document.documentElement;
@@ -28,31 +24,6 @@
       root.classList.remove('is-chrome');
       root.classList.add('is-chromium');
     }
-  };
-
-  /** Mobile drawer toggle driven by the .js-drawer-toggle button in the header. */
-  const drawer = (): void => {
-    const toggle = document.querySelector<HTMLButtonElement>('.js-drawer-toggle');
-    const panel = document.querySelector<HTMLElement>('.js-drawer');
-    if (!toggle || !panel) {
-      return;
-    }
-
-    const setOpen = (open: boolean): void => {
-      panel.classList.toggle('hidden', !open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
-    };
-
-    toggle.addEventListener('click', () => {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-    });
-
-    window.addEventListener('resize', () => {
-      if (!isMobile()) {
-        setOpen(false);
-      }
-    });
   };
 
   /** Header menu: the .js-header-toggle hamburger opens the panel below the lg breakpoint (1024). */
@@ -140,7 +111,6 @@
 
   const init = (): void => {
     detectBrowsers();
-    drawer();
     headerMenu();
     smoothScroll();
   };

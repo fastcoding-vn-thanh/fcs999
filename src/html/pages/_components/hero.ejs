@@ -51,13 +51,13 @@
       <fieldset class="p-index-hero__fields">
         <legend class="p-index-hero__legend">お客様情報</legend>
         <% fields.forEach((field) => { %>
-        <%- include('common/module/form-field.ejs', field) %>
+        <%- include('_components/form-field.ejs', field) %>
         <% }) %>
       </fieldset>
       <button class="p-index-hero__submit" type="submit">
         <img
           class="p-index-hero__submit-icon"
-          src="<%= path %>/img/top/icn_download.png"
+          src="<%= path %>/img/top/icn_download.svg"
           alt="Download"
           width="24"
           height="24"
