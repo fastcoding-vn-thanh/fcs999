@@ -1,0 +1,60 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+/* The design's field border and placeholder are both #bbb, the field token. */
+$field-border: map.get(v.$color, field);
+$field-placeholder: map.get(v.$color, field);
+
+.c-form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid $field-border;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  overflow: hidden;
+
+  @include mq("md") {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  &__label {
+    display: flex;
+    flex: none;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    background-color: map.get(v.$color, accent-secondary);
+    color: #fff;
+    font-size: map.get(v.$text, body-sm);
+    font-weight: 700;
+    line-height: 1.3;
+
+    @include mq("md") {
+      width: 13rem;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    height: 4.2rem;
+    padding: 0 1.6rem;
+    border: 0;
+    background: none;
+    color: map.get(v.$color, text-primary);
+    font-family: inherit;
+    font-size: map.get(v.$text, body-sm);
+    font-weight: 700;
+
+    &::placeholder {
+      color: $field-placeholder;
+      opacity: 1;
+    }
+
+    @include mq("md") {
+      padding-left: 1.6rem;
+    }
+  }
+}

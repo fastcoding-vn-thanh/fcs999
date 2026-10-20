@@ -1,0 +1,8 @@
+<%
+  const label = locals.label;
+  const href = locals.href ?? '#';
+  const modifier = locals.modifier ?? 'red';
+  const modifierClass = modifier === 'white' ? 'c-button-contact--white' : '';
+  const placeholder = href === '#' ? 'data-placeholder' : '';
+%>
+<a class="c-button-contact <%= modifierClass %>" href="<%= href %>" <%= placeholder %>><%= label %></a>

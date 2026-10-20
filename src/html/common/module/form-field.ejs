@@ -1,0 +1,17 @@
+<%
+  const id = locals.id;
+  const label = locals.label;
+  const type = locals.type ?? 'text';
+  const placeholder = locals.placeholder ?? '';
+  const name = locals.name ?? id;
+%>
+<div class="c-form-field">
+  <label class="c-form-field__label" for="<%= id %>"><%= label %></label>
+  <input
+    class="c-form-field__input"
+    id="<%= id %>"
+    name="<%= name %>"
+    type="<%= type %>"
+    placeholder="<%= placeholder %>"
+  />
+</div>

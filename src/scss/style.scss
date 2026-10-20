@@ -26,4 +26,9 @@
 @use "layout/header";
 @use "layout/footer";
 
+@use "object/component/breadcrumb";
+@use "object/component/button-contact";
+@use "object/component/form-field";
 @use "object/utility/visibility";
+
+@use "page/index/hero";

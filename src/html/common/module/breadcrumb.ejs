@@ -1,0 +1,26 @@
+<%
+  const items = locals.items ?? [];
+%>
+<nav class="c-breadcrumb" aria-label="パンくずリスト">
+  <ol class="c-breadcrumb__list">
+    <% items.forEach((item, i) => { %>
+    <li class="c-breadcrumb__item">
+      <% if (i > 0) { %>
+      <img
+        class="c-breadcrumb__separator"
+        src="<%= path %>/img/common/icn_breadcrumb_arrow.png"
+        alt="Arrow"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      />
+      <% } %>
+      <% if (item.href) { %>
+      <a class="c-breadcrumb__link" href="<%= item.href %>"><%= item.label %></a>
+      <% } else { %>
+      <span class="c-breadcrumb__current" aria-current="page"><%= item.label %></span>
+      <% } %>
+    </li>
+    <% }) %>
+  </ol>
+</nav>

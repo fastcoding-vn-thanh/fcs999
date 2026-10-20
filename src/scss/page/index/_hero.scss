@@ -1,0 +1,252 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+/* Small screen first. The section has no minimum width (TW-25): it stacks below lg and
+ * becomes the designed row from lg, where the 108rem column is centred by padding
+ * (180 on the 1440 frame). The art panel (bg) is the 1440x634 frame in one picture and
+ * only exists from lg; below it the gradient is drawn in CSS. */
+.p-index-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  padding: 5.2rem 2rem 4rem;
+  background: linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 55%,
+    map.get(v.$color, primary) 100%
+  );
+
+  @include mq("md") {
+    padding: 6rem 4rem 6.2rem;
+  }
+
+  @include mq("lg") {
+    flex-direction: row;
+    gap: 6.4rem;
+    padding: 6.2rem max(4rem, calc((100% - 108rem) / 2));
+    background: linear-gradient(
+      to left,
+      map.get(v.$color, primary) 0,
+      #fff 59%
+    );
+  }
+
+  &__bg {
+    display: none;
+
+    @include mq("lg") {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      pointer-events: none;
+    }
+  }
+
+  &__breadcrumb {
+    position: absolute;
+    top: 1.6rem;
+    left: 2rem;
+    z-index: 1;
+
+    @include mq("lg") {
+      left: 10rem;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.2rem;
+    width: 100%;
+    max-width: 52rem;
+
+    @include mq("lg") {
+      flex: 1 1 0;
+      max-width: 49.6rem;
+      min-width: 0;
+    }
+  }
+
+  &__eyebrow {
+    margin-bottom: -2.2rem;
+    color: map.get(v.$color, primary);
+    font-family: map.get(v.$font, en);
+    font-size: map.get(v.$text, body-lg);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.5;
+
+    @include mq("lg") {
+      font-size: 3.2rem;
+    }
+
+    @include mq("xl") {
+      font-size: map.get(v.$text, h1);
+    }
+  }
+
+  &__title-line {
+    display: inline-block;
+  }
+
+  &__subtitle {
+    margin-top: -0.45rem;
+    margin-bottom: -0.55rem;
+    font-size: map.get(v.$text, body-lg);
+    font-weight: 900;
+    line-height: 1.5;
+  }
+
+  &__subtitle-line {
+    display: block;
+
+    & + & {
+      margin-top: 0.6rem;
+    }
+  }
+
+  &__lead {
+    color: map.get(v.$color, text-secondary);
+    font-size: map.get(v.$text, body-md);
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 52rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: map.get(v.$color, bg-primary);
+    box-shadow: 0 4px 2px map.get(v.$color, shadow);
+
+    @include mq("md") {
+      padding: 4rem;
+    }
+
+    @include mq("lg") {
+      flex: none;
+      width: 52rem;
+    }
+  }
+
+  &__card-head {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+  }
+
+  &__card-img {
+    flex: none;
+    width: 9rem;
+    height: auto;
+
+    @include mq("md") {
+      width: 11.5rem;
+    }
+  }
+
+  &__card-text {
+    min-width: 0;
+  }
+
+  &__card-eyebrow {
+    margin-bottom: 0.63rem;
+    font-size: map.get(v.$text, body-lg);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &__card-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.3;
+
+    @include mq("md") {
+      font-size: map.get(v.$text, h3);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &__legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 25rem;
+    min-height: 6rem;
+    border: 2px solid map.get(v.$color, primary);
+    border-radius: 6rem;
+    background-color: #fff;
+    color: map.get(v.$color, primary);
+    font-family: inherit;
+    font-size: map.get(v.$text, btn-sm);
+    font-weight: 600;
+    line-height: 1.3;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__submit-icon {
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

@@ -1,6 +1,70 @@
-<%#
-  Section : hero
-  Page    : / (top)
-  Figma   : 1517:3815
-  Status  : not generated
+<%
+  const fields = [
+    { id: 'hero-company', label: '法人名', type: 'text', name: 'company', placeholder: '例) ファストコーディング' },
+    { id: 'hero-name', label: 'ご担当者名', type: 'text', name: 'name', placeholder: '例) 日本 太郎' },
+    { id: 'hero-tel', label: '電話番号', type: 'tel', name: 'tel', placeholder: '例) 036860354' },
+    { id: 'hero-email', label: 'メールアドレス', type: 'email', name: 'email', placeholder: '例) nippon.taro@fastcoding.jp' },
+  ];
 %>
+<section class="p-index-hero" aria-labelledby="hero-title">
+  <img
+    class="p-index-hero__bg"
+    src="<%= path %>/img/top/bg_hero.png"
+    alt="Background"
+    width="1440"
+    height="634"
+    aria-hidden="true"
+  />
+  <div class="p-index-hero__breadcrumb">
+    <%- include('common/module/breadcrumb.ejs', { items: [{ label: 'HOME', href: path + '/' }, { label: 'AI Hybrid Coding' }] }) %>
+  </div>
+  <div class="p-index-hero__text">
+    <p class="p-index-hero__eyebrow">AI HTML CODING</p>
+    <h1 class="p-index-hero__title" id="hero-title">
+      <span class="p-index-hero__title-line">AIの速さと、HTML</span>
+      <span class="p-index-hero__title-line">コーディング専門会社の</span>
+      <span class="p-index-hero__title-line">品質を両立します。</span>
+    </h1>
+    <p class="p-index-hero__subtitle">
+      <span class="p-index-hero__subtitle-line">AIコーディングには速さがある。</span>
+      <span class="p-index-hero__subtitle-line">けれど、実案件では品質まで任せられない。</span>
+    </p>
+    <p class="p-index-hero__lead">長年の制作ノウハウを実装ルールと検査工程へ組み込み、大量ページでもレスポンシブ、HTML構造、共通部品の品質を揃えます。</p>
+    <%- include('common/module/button-contact.ejs', { label: '案件について相談する', href: '#' }) %>
+  </div>
+  <div class="p-index-hero__card">
+    <div class="p-index-hero__card-head">
+      <img
+        class="p-index-hero__card-img"
+        src="<%= path %>/img/top/ill_hero_form.png"
+        alt="Illustration"
+        width="115"
+        height="106"
+        aria-hidden="true"
+      />
+      <div class="p-index-hero__card-text">
+        <p class="p-index-hero__card-eyebrow">大規模案件をスピード対応</p>
+        <h2 class="p-index-hero__card-title" id="hero-form-title">資料請求はこちら</h2>
+      </div>
+    </div>
+    <form class="p-index-hero__form js-form" action="#" method="post" aria-labelledby="hero-form-title">
+      <fieldset class="p-index-hero__fields">
+        <legend class="p-index-hero__legend">お客様情報</legend>
+        <% fields.forEach((field) => { %>
+        <%- include('common/module/form-field.ejs', field) %>
+        <% }) %>
+      </fieldset>
+      <button class="p-index-hero__submit" type="submit">
+        <img
+          class="p-index-hero__submit-icon"
+          src="<%= path %>/img/top/icn_download.png"
+          alt="Download"
+          width="24"
+          height="24"
+          aria-hidden="true"
+        />
+        資料ダウンロード
+      </button>
+    </form>
+  </div>
+</section>
