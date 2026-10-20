@@ -1,5 +1,5 @@
 /* Design tokens, generated from the Figma variables (get_variable_defs), not hand-kept.
- * Emit only what the design defines; replace these placeholders in the tokens step.
+ * Emit only what the design defines.
  *
  * TWO FORMS OF THE SAME TOKEN, on purpose (K-50):
  *   :root  the custom property. It survives into the delivered CSS, so the client can
@@ -10,16 +10,85 @@
  * The map's values ARE the custom properties, so there is one source of truth. */
 
 :root {
-  --color-text: #333;
-  --font-sans:
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", yugothic, meiryo, sans-serif;
+  /* Colours bound to a Figma variable. */
+  --color-primary: #c11c1f;
+  --color-accent-primary: #c11c1f;
+  --color-accent-secondary: #283339;
+  --color-bg-primary: #f8f2f2;
+  --color-bg-secondary: #f0f0f0;
+  --color-text-primary: #000;
+  --color-text-secondary: #6f6f6f;
+  --color-border-primary: #e5e5e5;
+  --color-border-secondary: #000;
+
+  /* Colours the design uses but binds no variable to (BEM-04). Move them up into the
+   * block above if the designer ever binds them. primary-light is the upper half of the
+   * two-tone red button pill, primary-dark the footer buttons' shadow plate, header the
+   * header's slanted red block (not --color-primary). */
+  --color-primary-light: #f83030;
+  --color-primary-dark: #6f0103;
+  --color-header: #e92225;
+
+  /* Noto Sans JP and Outfit load from Google Fonts in layouts/head.ejs. Avenir and
+   * Avenir Next are not web fonts: they resolve on systems that have them, else Outfit. */
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif;
+  --font-en: avenir, "Avenir Next", outfit, "Noto Sans JP", sans-serif;
+  --font-num: outfit, "Noto Sans JP", sans-serif;
+
+  /* Sizes as Figma states them, in rem at the 10px root. Weights: H1 to H5 900,
+   * body-lg 600, body-lg-bold 900, body-md 500, body-sm 400, btn-lg/md 900,
+   * btn-sm/xs 600, btn-xxs 700. Line-height is never a token (TW-26). */
+  --text-h1: 4.5rem;
+  --text-h3: 3.5rem;
+  --text-h4: 2.3rem;
+  --text-h5: 2rem;
+  --text-body-lg: 1.8rem;
+  --text-body-lg-bold: 1.8rem;
+  --text-body-md: 1.6rem;
+  --text-body-sm: 1.4rem;
+  --text-btn-lg: 2.5rem;
+  --text-btn-md: 2rem;
+  --text-btn-sm: 1.8rem;
+  --text-btn-xs: 1.6rem;
+  --text-btn-xxs: 1.4rem;
+
+  /* Inner column the sections align to (x 180 to 1260 on the 1440 frame). */
+  --container-content: 108rem;
 }
 
 $color: (
-  text: var(--color-text),
+  primary: var(--color-primary),
+  accent-primary: var(--color-accent-primary),
+  accent-secondary: var(--color-accent-secondary),
+  bg-primary: var(--color-bg-primary),
+  bg-secondary: var(--color-bg-secondary),
+  text-primary: var(--color-text-primary),
+  text-secondary: var(--color-text-secondary),
+  border-primary: var(--color-border-primary),
+  border-secondary: var(--color-border-secondary),
+  primary-light: var(--color-primary-light),
+  primary-dark: var(--color-primary-dark),
+  header: var(--color-header),
 );
 $font: (
   sans: var(--font-sans),
+  en: var(--font-en),
+  num: var(--font-num),
+);
+$text: (
+  h1: var(--text-h1),
+  h3: var(--text-h3),
+  h4: var(--text-h4),
+  h5: var(--text-h5),
+  body-lg: var(--text-body-lg),
+  body-lg-bold: var(--text-body-lg-bold),
+  body-md: var(--text-body-md),
+  body-sm: var(--text-body-sm),
+  btn-lg: var(--text-btn-lg),
+  btn-md: var(--text-btn-md),
+  btn-sm: var(--text-btn-sm),
+  btn-xs: var(--text-btn-xs),
+  btn-xxs: var(--text-btn-xxs),
 );
 
 /* Tailwind's defaults, which this flavour keeps so the two are comparable.

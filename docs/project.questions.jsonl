@@ -1,0 +1,1 @@
+{"id": "Q-001", "date": "2026-10-21", "question": "Avenir / Avenir Next have no web build: keep the Outfit fallback, supply a licensed web font to self-host in src/font/, or settle on Outfit alone?", "status": "open", "refs": ["D-012"]}
