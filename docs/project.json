@@ -74,6 +74,10 @@
         {
           "name": "after-order",
           "design": "1517:4694"
+        },
+        {
+          "name": "banner",
+          "design": "1820:2972"
         }
       ]
     },
@@ -128,6 +132,10 @@
         {
           "name": "service",
           "design": "1520:5593"
+        },
+        {
+          "name": "banner",
+          "design": "1820:3019"
         }
       ]
     },
@@ -301,6 +309,10 @@
         {
           "name": "review",
           "design": "1653:3966"
+        },
+        {
+          "name": "banner",
+          "design": "1820:2994"
         }
       ]
     },
@@ -322,6 +334,10 @@
         {
           "name": "requirements",
           "design": "1653:6523"
+        },
+        {
+          "name": "banner",
+          "design": "1820:2961"
         }
       ]
     }
@@ -336,40 +352,12 @@
       "design": "1275:1782"
     },
     {
-      "name": "banner-aimes",
-      "design": "1820:2960"
-    },
-    {
       "name": "button-more",
       "design": "1535:9740"
     },
     {
-      "name": "faq-question",
-      "design": "1215:5249"
-    },
-    {
-      "name": "faq-answer",
-      "design": "1458:3547"
-    },
-    {
       "name": "back-to-home",
       "design": "1825:5584"
-    },
-    {
-      "name": "navigation-button01",
-      "design": "1820:3203"
-    },
-    {
-      "name": "navigation-button02",
-      "design": "1820:3254"
-    },
-    {
-      "name": "navigation-button03",
-      "design": "1825:3324"
-    },
-    {
-      "name": "navigation-button04",
-      "design": "1825:4819"
     },
     {
       "name": "banner",
@@ -377,7 +365,15 @@
     },
     {
       "name": "button-contact",
-      "design": "1602:5418"
+      "design": "671:46"
+    },
+    {
+      "name": "faq-item",
+      "design": "1215:5249"
+    },
+    {
+      "name": "number-card",
+      "design": "1820:3203"
     }
   ]
 }
