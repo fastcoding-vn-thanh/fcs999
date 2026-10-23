@@ -2,7 +2,7 @@
 @use "../../foundation/variables" as v;
 @use "../../foundation/mixins" as *;
 
-/* Small screen first. The section has no minimum width (TW-25): it stacks below lg and
+/* Small screen first. The section has no minimum width (RSP-04): it stacks below lg and
  * becomes the designed row from lg, where the 108rem column is centred by padding
  * (180 on the 1440 frame). The art panel (bg) is the 1440x634 frame in one picture and
  * only exists from lg; below it the gradient is drawn in CSS. */

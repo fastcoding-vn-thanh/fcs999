@@ -26,7 +26,7 @@ White (#FFFFFF) is used 790 times with no variable. It is exempt from a token.
 
 ### 1b. Text styles (named in Figma) and the unstyled sizes that matter
 
-Size / weight; line-height as Figma reports it. The same style name is **reported with different line-heights on different pages** (H1 1 or 1.5, H3 1 or 1.5, H4 1 or 1.5, Body/Large 1 or 1.8, Body/Medium 1 or 1.8, Body/Small 1 or 1.8), so the variable does not carry line-height and each node overrides it. TW-26 sets the floor anyway (1.3 headings, 1.5 running text).
+Size / weight; line-height as Figma reports it. The same style name is **reported with different line-heights on different pages** (H1 1 or 1.5, H3 1 or 1.5, H4 1 or 1.5, Body/Large 1 or 1.8, Body/Medium 1 or 1.8, Body/Small 1 or 1.8), so the variable does not carry line-height and each node overrides it. LAY-06 sets the floor anyway (1.3 headings, 1.5 running text).
 
 | Figma style | Value | Proposed token | Used by |
 | --- | --- | --- | --- |
@@ -523,7 +523,7 @@ footer            > h2 "中・大規模サイトのコーディングをご相�
 
 ## 6. Design file health
 
-- **No SP frame at all.** `designSP` exists on none of the 56 sections and none of the ten pages, and `project.json` declares `spWidth` 390. Is the small screen still coming or declined? If declined, TW-25 applies from the first section. Q1.
+- **No SP frame at all.** `designSP` exists on none of the 56 sections and none of the ten pages, and `project.json` declares `spWidth` 390. Is the small screen still coming or declined? If declined, RSP-04 applies from the first section. Q1.
 - **Page frames are not Auto Layout**: every section is an absolutely positioned child of the page frame, so the include order is read off y. Overlap warnings in `docs/figma-sitemap.raw.json` are the page-level `content-bg` rectangle and the `decoration-image` watermarks, which sit behind sections on purpose; they are not sections.
 - **Four pages carry a banner section that `project.json` does not list** (flow, aimes, quality, services), see §7.
 - **Layer order is reversed against reading order** in four lists (flow before- and after-order steps, aimes service items, feature02 flow steps): the markup must follow the visual order.

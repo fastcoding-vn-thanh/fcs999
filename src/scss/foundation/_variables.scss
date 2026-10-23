@@ -40,7 +40,7 @@
 
   /* Sizes as Figma states them, in rem at the 10px root. Weights: H1 to H5 900,
    * body-lg 600, body-lg-bold 900, body-md 500, body-sm 400, btn-lg/md 900,
-   * btn-sm/xs 600, btn-xxs 700. Line-height is never a token (TW-26). */
+   * btn-sm/xs 600, btn-xxs 700. Line-height is never a token (LAY-06). */
   --text-h1: 4.5rem;
   --text-h3: 3.5rem;
   --text-h4: 2.3rem;
@@ -98,7 +98,7 @@ $text: (
 
 /* Tailwind's defaults, which this flavour keeps so the two are comparable.
  *
- * IN REM, AND THE REASON IS NOT THE ONE IT LOOKS LIKE (TW-22). A length in a media
+ * IN REM, AND THE REASON IS NOT THE ONE IT LOOKS LIKE (LEN-04). A length in a media
  * query is resolved against the browser's initial font size, never against this
  * document's `font-size: 62.5%`, so `48rem` here is 768px and not 480px. Declared in
  * px it would still be 768px - what rem buys is that a reader who has enlarged their

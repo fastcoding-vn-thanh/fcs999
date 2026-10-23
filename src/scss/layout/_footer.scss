@@ -2,7 +2,7 @@
 @use "../foundation/variables" as v;
 @use "../foundation/mixins" as *;
 
-/* Line-height floors per TW-26: the title 1.3, running text 1.5; the vertical margins at xl
+/* Line-height floors per LAY-06: the title 1.3, running text 1.5; the vertical margins at xl
  * carry the arithmetic (see the layout decisions), so line 1 sits where the frame puts it.
  * Below xl the card stacks its two links. The art is one decorative picture behind the
  * content, cropped by `cover`. */

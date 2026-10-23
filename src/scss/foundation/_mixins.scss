@@ -1,32 +1,97 @@
 @use "sass:map";
+@use "sass:meta";
 @use "variables" as v;
 
-/* The only breakpoint mixin. An agent writes the small screen unprefixed and the
- * desktop inside `@include mq(md)`; the range from 768 to the design width is a
- * person's one pass afterwards (TW-14, TW-15).
+/* THE BREAKPOINT MIXINS - Tailwind's `md:`, `max-md:` and `md:max-lg:`, as SCSS (K-59).
  *
- * CLASSIC `min-width`, NOT THE RANGE SYNTAX the Tailwind flavour writes. Tailwind's
- * Lightning CSS pass downlevels `(width >= 48rem)` for older browsers on the way out;
- * this path has Sass and autoprefixer, and autoprefixer adds prefixes without
- * rewriting a media query. So the output here is what is written here, and
- * `min-width` is the form every browser reads.
+ *   Tailwind              here                          matches
+ *   md:                   mq("md")                      width >= md
+ *   max-md:               mq-max("md")                  width <  md
+ *   md:max-lg:            mq-between("md", "lg")        md <= width < lg
+ *   min-[50rem]:          mq(50rem)                     width >= 50rem
+ *   max-[50rem]:          mq-max(50rem)                 width <  50rem
  *
- * THE PRINT BRANCH IS K-49 AND IT IS NOT OPTIONAL. Under the Tailwind flavour
- * `@custom-variant md` matches `(width >= 48rem)` OR `print`, because paper narrower
- * than 768 was printing the small-screen layout. A mixin that emits the width query
- * alone reintroduces that bug in a flavour where nobody will think to look for it. */
-@mixin mq($name) {
-  @if not map.has-key(v.$breakpoint, $name) {
-    @error "mq(): no breakpoint named `#{$name}` - $breakpoint has #{map.keys(v.$breakpoint)}";
+ * Every argument is a name from `$breakpoint` (a project's own `pc` included) or a rem
+ * length. An agent writes the small screen unprefixed and the desktop inside
+ * `@include mq("md")`; the range from 768 to the design width is a person's one pass
+ * afterwards, and these are what that pass is written with (RSP-02, RSP-05).
+ * Mobile-first stays the default: reach for `mq-max` and `mq-between` only where a rule
+ * must STOP applying, and say why in the partial.
+ *
+ * CLASSIC `min-width` / `max-width`, NOT THE RANGE SYNTAX the Tailwind flavour writes.
+ * Tailwind's Lightning CSS pass downlevels `(width >= 48rem)` for older browsers on the
+ * way out; this path has Sass and autoprefixer, and autoprefixer adds prefixes without
+ * rewriting a media query. So the output here is what is written here, and the classic
+ * form is the one every browser reads.
+ *
+ * THE UPPER EDGE IS `$edge` BELOW THE BREAKPOINT, not on it. `max-width: 48rem` and
+ * `min-width: 48rem` both match at exactly 768px, so the "below md" and "md and up" layers
+ * would both apply there. 0.0013rem is about 0.02px against the 16px a media query resolves
+ * rem with (BEM-09); Tailwind v3 used 767.98px for the same reason.
+ *
+ * PRINT IS K-49 AND IT IS NOT OPTIONAL. Under the Tailwind flavour `@custom-variant md`
+ * matches `(width >= 48rem)` OR `print`, because paper narrower than 768 was printing the
+ * small-screen layout. The rule that follows from it, applied to all three mixins: **print
+ * counts as exactly `md` wide.** So a query whose range contains `md` also gets a
+ * `@media print` branch, and a query that ends at or below `md` (the small-screen layer)
+ * is limited to `screen`, so it never reaches the paper. A mixin that emitted the width
+ * query alone would reintroduce that bug in a flavour where nobody will think to look. */
+$edge: 0.0013rem;
+
+@function width($bp) {
+  @if meta.type-of($bp) == "number" {
+    @return $bp;
   }
 
-  $value: map.get(v.$breakpoint, $name);
+  @if not map.has-key(v.$breakpoint, $bp) {
+    @error "mq: no breakpoint named `#{$bp}` - $breakpoint has #{map.keys(v.$breakpoint)}, or pass a rem length";
+  }
 
-  @media (min-width: #{$value}) {
+  @return map.get(v.$breakpoint, $bp);
+}
+
+@mixin mq($from) {
+  $min: width($from);
+
+  @media (min-width: #{$min}) {
     @content;
   }
 
-  @if $name == "md" {
+  @if $min <= map.get(v.$breakpoint, "md") {
+    @media print {
+      @content;
+    }
+  }
+}
+
+@mixin mq-max($to) {
+  $max: width($to);
+  $screen: "";
+
+  @if $max <= map.get(v.$breakpoint, "md") {
+    $screen: "screen and ";
+  }
+
+  $query: "#{$screen}(max-width: #{$max - $edge})";
+
+  @media #{$query} {
+    @content;
+  }
+}
+
+@mixin mq-between($from, $to) {
+  $min: width($from);
+  $max: width($to);
+
+  @if $min >= $max {
+    @error "mq-between(): `#{$from}` (#{$min}) is not below `#{$to}` (#{$max})";
+  }
+
+  @media (min-width: #{$min}) and (max-width: #{$max - $edge}) {
+    @content;
+  }
+
+  @if $min <= map.get(v.$breakpoint, "md") and $max > map.get(v.$breakpoint, "md") {
     @media print {
       @content;
     }
