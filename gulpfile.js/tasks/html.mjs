@@ -36,7 +36,7 @@ const argv = yargs(hideBin(process.argv)).argv;
  * helps nobody.
  */
 const isWatchMode = argv._.includes('develop');
-const isBem = config.css.flavour === 'bem';
+const isBem = config.css.method === 'bem';
 
 let htmlErrors = [];
 
@@ -84,7 +84,7 @@ const prettierHtmlOptions = {
   htmlWhitespaceSensitivity: 'css',
   bracketSameLine: false,
   endOfLine: 'lf',
-  /* The class sorter is Tailwind's and only Tailwind's. On the bem flavour a class list
+  /* The class sorter is Tailwind's and only Tailwind's. On the bem method a class list
      is one or two BEM names whose order carries no meaning, so there is nothing to sort
      and the plugin would be loading Tailwind to read a stylesheet that is not there. */
   ...(isBem ? {} : { plugins: ['prettier-plugin-tailwindcss'], tailwindStylesheet: './src/css/style.css' }),
@@ -497,7 +497,7 @@ const sortClassValues = async (values) => {
 };
 
 const lintHtmlFix = async () => {
-  /* NOTHING TO SORT ON THE BEM FLAVOUR, and it says so rather than reporting
+  /* NOTHING TO SORT ON THE BEM METHOD, and it says so rather than reporting
      "sorted 0 class list(s)" - which reads as a sorter that ran and found the file
      already in order. TW-09 is a Tailwind rule; a BEM class list is one or two names
      whose order carries no meaning. */

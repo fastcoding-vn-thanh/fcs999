@@ -18,7 +18,7 @@
  * Mobile-first stays the default: reach for `mq-max` and `mq-between` only where a rule
  * must STOP applying, and say why in the partial.
  *
- * CLASSIC `min-width` / `max-width`, NOT THE RANGE SYNTAX the Tailwind flavour writes.
+ * CLASSIC `min-width` / `max-width`, NOT THE RANGE SYNTAX the Tailwind method writes.
  * Tailwind's Lightning CSS pass downlevels `(width >= 48rem)` for older browsers on the
  * way out; this path has Sass and autoprefixer, and autoprefixer adds prefixes without
  * rewriting a media query. So the output here is what is written here, and the classic
@@ -29,13 +29,13 @@
  * would both apply there. 0.0013rem is about 0.02px against the 16px a media query resolves
  * rem with (BEM-09); Tailwind v3 used 767.98px for the same reason.
  *
- * PRINT IS K-49 AND IT IS NOT OPTIONAL. Under the Tailwind flavour `@custom-variant md`
+ * PRINT IS K-49 AND IT IS NOT OPTIONAL. Under the Tailwind method `@custom-variant md`
  * matches `(width >= 48rem)` OR `print`, because paper narrower than 768 was printing the
  * small-screen layout. The rule that follows from it, applied to all three mixins: **print
  * counts as exactly `md` wide.** So a query whose range contains `md` also gets a
  * `@media print` branch, and a query that ends at or below `md` (the small-screen layer)
  * is limited to `screen`, so it never reaches the paper. A mixin that emitted the width
- * query alone would reintroduce that bug in a flavour where nobody will think to look. */
+ * query alone would reintroduce that bug in a method where nobody will think to look. */
 $edge: 0.0013rem;
 
 @function width($bp) {

@@ -19,7 +19,7 @@ decisions, environment notes, links, the things no other project shares — they
 
 - **Client:**
 - **Design:** Figma file key `KyNk93Eshiz4NPhNhGKIVa`, page `design-v3` (10 desktop frames, all 1440 wide)
-- **Anything unusual about this build:** CSS flavour is `bem` (chosen at `/fa-new`). The design has no mobile artboard, so `spWidth` stays at the starter's 390 and the SP layout is not drawn: RSP-04 applies (sections are derived at both widths in one pass).
+- **Anything unusual about this build:** CSS method is `bem` (chosen at `/fa-new`). The design has no mobile artboard, so `spWidth` stays at the starter's 390 and the SP layout is not drawn: RSP-04 applies (sections are derived at both widths in one pass).
 - **This project is also the kit's BEM test bed.** The kit is being extended to support BEM SCSS beside Tailwind
   (kit branch `feature/bem-scss`), and this is the project that exercises it. So:
   - **Read every rule in BEM terms.** The kit's core rules (`RSP-`, `LAY-`, `LEN-`) still show Tailwind
@@ -27,10 +27,10 @@ decisions, environment notes, links, the things no other project shares — they
     SCSS, and `bem-rules.md` has the translation table: `md:` → `@include mq("md")`, `md:min-w-[144rem]` →
     `min-width: 144rem` under `mq("md")` in the block's partial. A `TW-` rule never applies here. In reports
     and briefs to sub-agents, write the SCSS form, never the utility form. Rules cited in older log entries as
-    `TW-nn` were renamed at K-58; the map is in `rule-notes.md#the-flavour-split`.
+    `TW-nn` were renamed at K-58; the map is in `rule-notes.md#the-method-split`.
   - **A place where the kit assumes Tailwind, is vague, or contradicts `bem-rules.md` is a kit gap.** Do not
     work around it silently and do not patch the kit mid-task. Say so to the user as a proposal (what, where,
     suggested change) and add a one-line `kit-gap` note to `docs/project.decisions.jsonl`. The kit is patched
     only by the orchestrator, on a branch, and the user decides whether it ships (see "When the kit itself is
     wrong" in the imported kit instructions).
-  - Sub-agent briefs must say `CSS flavour: bem` explicitly.
+  - Sub-agent briefs must say `CSS method: bem` explicitly.

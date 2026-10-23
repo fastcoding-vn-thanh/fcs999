@@ -2,7 +2,7 @@
  * own partial.
  *
  * The media queries are classic `min-width` / `max-width` rather than the range syntax
- * the Tailwind flavour writes, for the reason in _mixins.scss: nothing downlevels this
+ * the Tailwind method writes, for the reason in _mixins.scss: nothing downlevels this
  * path. 767.98px is the same figure src/ts/scripts.ts uses for the same boundary.
  *
  * This layer writes `var(--color-*)` rather than `map.get($color, ...)`, which the

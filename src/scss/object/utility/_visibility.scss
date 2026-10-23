@@ -1,6 +1,6 @@
 @use "../../foundation/mixins" as *;
 
-/* The two the Tailwind flavour declares as @utility sp-only / pc-only, with the same
+/* The two the Tailwind method declares as @utility sp-only / pc-only, with the same
  * meaning: each is visible by default at its own width and hidden at the other.
  * `u-pc-only` hides BELOW md rather than showing above it, so it keeps whatever
  * display value the element already had. */

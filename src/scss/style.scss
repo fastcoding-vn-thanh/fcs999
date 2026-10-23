@@ -13,7 +13,7 @@
  * literal @charset inside a module would not be first in the compiled file.
  *
  * >> HANDING OFF TO WORDPRESS / VUE / REACT? <<
- * Nothing to configure. Unlike the Tailwind flavour, this stylesheet does not
+ * Nothing to configure. Unlike the Tailwind method, this stylesheet does not
  * scan the markup - every rule here exists whether or not a class uses it, so
  * the client's own templates can use these classes with no build step.
  * -------------------------------------------------------------------------- */

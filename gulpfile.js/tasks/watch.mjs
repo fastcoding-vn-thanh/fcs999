@@ -3,7 +3,7 @@ import * as del from 'del';
 import { relative, resolve, sep } from 'path';
 import { base as config } from '../config/index.mjs';
 
-const isBem = config.css.flavour === 'bem';
+const isBem = config.css.method === 'bem';
 
 const monitoring = () => {
   /**
@@ -18,7 +18,7 @@ const monitoring = () => {
    */
   const htmlWatcher = watch(
     [config.html.path.watchFiles].concat(config.ignore),
-    /* ON THE BEM FLAVOUR A TEMPLATE SAVE REBUILDS THE PAGES ONLY. Sass does not read
+    /* ON THE BEM METHOD A TEMPLATE SAVE REBUILDS THE PAGES ONLY. Sass does not read
        src/html at all - every rule exists whether a class uses it or not - so re-running
        the stylesheet on a markup save would be work with nothing to find. Under Tailwind
        it is the opposite and the rebuild is required, for the reason above. */

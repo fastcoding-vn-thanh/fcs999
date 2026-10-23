@@ -17,7 +17,7 @@ const pathSource = './src';
  */
 const pathDestination = process.env.BUILD_OUT ?? './dist';
 /**
- * Which CSS flavour this project is written in (K-56): "tailwind" or "bem".
+ * Which CSS method this project is written in (K-56): "tailwind" or "bem".
  *
  * It decides the entry point, the compiler, and whether a template save has to rebuild
  * the stylesheet - Tailwind scans src/html, Sass does not. Nothing else in the build
@@ -25,25 +25,25 @@ const pathDestination = process.env.BUILD_OUT ?? './dist';
  *
  * FIXED AT SCAFFOLD TIME. Changing it on a project that already has sections means
  * rewriting every class in src/html, which is not a migration this kit offers;
- * `fa doctor` reports which flavour a project is in.
+ * `fa doctor` reports which method a project is in.
  *
  * An unrecognised value falls back to tailwind AND SAYS SO. Silence there would mean a
- * typo ("scss", "bem-scss") quietly building the other flavour, which looks like the
+ * typo ("scss", "bem-scss") quietly building the other method, which looks like the
  * stylesheet simply not working.
  */
-const FLAVOURS = ['tailwind', 'bem'];
-const declaredFlavour = loadProject()?.project?.css;
-if (declaredFlavour && !FLAVOURS.includes(declaredFlavour)) {
+const METHODS = ['tailwind', 'bem'];
+const declaredMethod = loadProject()?.project?.css;
+if (declaredMethod && !METHODS.includes(declaredMethod)) {
   console.warn(
-    `  css: docs/project.json has "css": "${declaredFlavour}", which is not ${FLAVOURS.join(' or ')} - building as tailwind.`
+    `  css: docs/project.json has "css": "${declaredMethod}", which is not ${METHODS.join(' or ')} - building as tailwind.`
   );
 }
-const cssFlavour = FLAVOURS.includes(declaredFlavour) ? declaredFlavour : 'tailwind';
+const cssMethod = METHODS.includes(declaredMethod) ? declaredMethod : 'tailwind';
 
 /* One entry point either way. The output path is deliberately the same for both: the
    client receives dist/css/style.css and has no reason to know which compiler wrote it. */
 const cssSource =
-  cssFlavour === 'bem'
+  cssMethod === 'bem'
     ? { dir: pathSource + '/scss', entry: pathSource + '/scss/style.scss', all: pathSource + '/scss/**/*.scss' }
     : { dir: pathSource + '/css', entry: pathSource + '/css/style.css', all: pathSource + '/css/**/*.css' };
 
@@ -88,9 +88,9 @@ const baseConfig = {
   },
   css: {
     // Which compiler reads the entry point. tasks/css.mjs is the only reader.
-    flavour: cssFlavour,
+    method: cssMethod,
     path: {
-      // Single entry point, per flavour. Every page shares one stylesheet.
+      // Single entry point, per method. Every page shares one stylesheet.
       input: cssSource.dir,
       inputFile: cssSource.entry,
       inputFiles: cssSource.all,
@@ -168,4 +168,4 @@ const baseConfig = {
 };
 
 export const base = baseConfig;
-export { cssFlavour };
+export { cssMethod };

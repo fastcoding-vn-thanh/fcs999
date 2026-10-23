@@ -96,7 +96,7 @@ $text: (
   btn-xxs: var(--text-btn-xxs),
 );
 
-/* Tailwind's defaults, which this flavour keeps so the two are comparable.
+/* Tailwind's defaults, which this method keeps so the two are comparable.
  *
  * IN REM, AND THE REASON IS NOT THE ONE IT LOOKS LIKE (LEN-04). A length in a media
  * query is resolved against the browser's initial font size, never against this

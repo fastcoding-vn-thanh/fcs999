@@ -12,13 +12,13 @@ import { base as config } from '../config/index.mjs';
 
 const argv = yargs(hideBin(process.argv)).argv;
 
-const isBem = config.css.flavour === 'bem';
+const isBem = config.css.method === 'bem';
 
 /**
  * How postcss should PARSE the hand-written layer before stylelint reads it.
  *
  * gulp-postcss parses with postcss's CSS parser, which cannot read `@use`, `$maps`,
- * `&__element` or `@mixin` - so on the bem flavour every file would fail to parse and
+ * `&__element` or `@mixin` - so on the bem method every file would fail to parse and
  * the lint step would report syntax errors for correct SCSS. postcss-scss is the
  * parser AND the stringifier, so lintStylesFix still round-trips the source.
  *
@@ -94,16 +94,16 @@ const lintStylesFix = async () => {
 };
 
 /**
- * Compile the one entry point this flavour has, emitting both deliverables from one
+ * Compile the one entry point this method has, emitting both deliverables from one
  * pass.
  *
  *   style.min.css  exactly what the compiler produced, untouched
  *   style.css      the same CSS run through Prettier
  *
- * Which compiler is config.css.flavour's business, not this function's - see
+ * Which compiler is config.css.method's business, not this function's - see
  * compileTailwind and compileSass below. The two outputs, their names and their
  * contract are identical either way, which is what keeps everything downstream
- * (audit-classes, the <link> in head.ejs, the client) flavour-blind.
+ * (audit-classes, the <link> in head.ejs, the client) method-blind.
  *
  * `npm run dev` sets NODE_ENV=production too, so it takes this same path and
  * emits the same bytes as `npm run build` - see the note on `develop` in
@@ -119,7 +119,7 @@ const lintStylesFix = async () => {
  */
 
 /**
- * The Tailwind flavour: one PostCSS pass over src/css/style.css.
+ * The Tailwind method: one PostCSS pass over src/css/style.css.
  *
  * Tailwind v4 runs Lightning CSS optimisation itself when NODE_ENV=production, so its
  * own output IS the minified build - a second minifier over it gzips ~150 bytes larger.
@@ -132,10 +132,10 @@ const compileTailwind = async (inputFile) => {
 };
 
 /**
- * The bem flavour: Dart Sass over src/scss/style.scss, then autoprefixer (K-56).
+ * The bem method: Dart Sass over src/scss/style.scss, then autoprefixer (K-56).
  *
  * Both are imported HERE rather than at the top of the file, so a project on the other
- * flavour never loads a compiler it does not use - and a project that has pruned the
+ * method never loads a compiler it does not use - and a project that has pruned the
  * dependency it does not need still builds.
  *
  * `compressed` makes this output the minified build, the same contract the Tailwind path
