@@ -8,7 +8,7 @@
   // told that ejs is HTML - otherwise class-name completion, the thing that
   // matters most day to day, is lost inside a template.
   //
-  // THE tailwindCSS.* KEYS ARE INERT ON A BEM PROJECT (K-50) and are left here rather
+  // THE tailwindCSS.* KEYS ARE INERT ON A BEM PROJECT (K-56) and are left here rather
   // than split into two files: the extension finds no stylesheet and does nothing. The
   // thing a bem project wants instead is Stylelint, below, which reads the `overrides`
   // block in .stylelintrc.json and so enforces BEM-01 and BEM-03 as you type.

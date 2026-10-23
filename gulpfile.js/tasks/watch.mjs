@@ -9,7 +9,7 @@ const monitoring = () => {
   /**
    * Under Tailwind, template changes rebuild the pages AND the stylesheet: it scans
    * src/html/**\/*.ejs, so a new utility class in the markup has to re-run the
-   * CSS build to exist. Under bem they rebuild the pages only (K-50).
+   * CSS build to exist. Under bem they rebuild the pages only (K-56).
    *
    * `buildStyles`, not `css`: the latter is series(lintStyles, buildStyles), and
    * saving a template changes no CSS source, so linting src/css again on every

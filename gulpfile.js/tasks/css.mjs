@@ -132,7 +132,7 @@ const compileTailwind = async (inputFile) => {
 };
 
 /**
- * The bem flavour: Dart Sass over src/scss/style.scss, then autoprefixer (K-50).
+ * The bem flavour: Dart Sass over src/scss/style.scss, then autoprefixer (K-56).
  *
  * Both are imported HERE rather than at the top of the file, so a project on the other
  * flavour never loads a compiler it does not use - and a project that has pruned the

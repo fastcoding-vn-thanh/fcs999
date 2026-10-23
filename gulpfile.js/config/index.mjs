@@ -17,7 +17,7 @@ const pathSource = './src';
  */
 const pathDestination = process.env.BUILD_OUT ?? './dist';
 /**
- * Which CSS flavour this project is written in (K-50): "tailwind" or "bem".
+ * Which CSS flavour this project is written in (K-56): "tailwind" or "bem".
  *
  * It decides the entry point, the compiler, and whether a template save has to rebuild
  * the stylesheet - Tailwind scans src/html, Sass does not. Nothing else in the build
