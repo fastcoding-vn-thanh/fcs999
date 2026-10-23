@@ -4,14 +4,14 @@
 
 .c-number-card {
   height: 100%;
-  padding: 1.6rem 2rem 3.2rem;
+  padding: 1.5rem 1.9rem 2rem;
   border: 1px solid map.get(v.$color, border-primary);
   border-radius: 1rem;
   background-color: #fff;
 
   @include mq("md") {
     min-height: 25.5rem;
-    padding: 1.6rem 4rem 3.2rem;
+    padding: 1.5rem 3.9rem 2rem;
   }
 
   &__head {
@@ -45,14 +45,14 @@
   }
 
   &__title {
-    margin-top: 1.255rem;
+    margin-top: 1.365rem;
     font-size: map.get(v.$text, h4);
     font-weight: 900;
     line-height: 1.3;
   }
 
   &__text {
-    margin-top: 0.655rem;
+    margin-top: 0.555rem;
     color: map.get(v.$color, text-secondary);
     font-size: map.get(v.$text, body-md);
     font-weight: 500;

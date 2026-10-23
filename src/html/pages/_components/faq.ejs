@@ -23,6 +23,7 @@
     id: 'faq-title',
     eyebrow: 'FAQ',
     title: 'よくあるご質問',
+    short: true,
   }) %>
   <ul class="p-index-faq__list">
     <% items.forEach((item) => { %>
@@ -32,6 +33,6 @@
     <% }) %>
   </ul>
   <div class="p-index-faq__more">
-    <%- include('common/module/button-more.ejs', { label: 'よくある質問を見る', href: path + '/faq/', size: 'm' }) %>
+    <%- include('common/module/button-more.ejs', { label: 'よくある質問を見る', href: path + '/faq/', size: 'l' }) %>
   </div>
 </section>

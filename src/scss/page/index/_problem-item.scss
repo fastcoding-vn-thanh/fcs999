@@ -89,7 +89,7 @@
       min-height: 12rem;
       margin: 0 0 0 4rem;
       padding-left: 4rem;
-      border-left: 1px solid map.get(v.$color, border-secondary);
+      border-left: 1px solid map.get(v.$color, divider);
     }
 
     @include mq("xl") {

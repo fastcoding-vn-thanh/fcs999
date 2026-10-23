@@ -28,11 +28,17 @@
   }
 
   &__item + &__item {
-    padding-top: calc(3.2rem + 2px);
-    background: linear-gradient(to right, map.get(v.$color, border-secondary) 2px, transparent 2px) 7px 0 / 8px 2px repeat-x;
+    padding-top: 3.2rem;
+    background: linear-gradient(to right, map.get(v.$color, divider) 2px, transparent 2px) 7px 0 / 8px 2px repeat-x;
 
     @include mq("lg") {
-      padding-top: calc(4rem + 2px);
+      padding-top: 4rem;
+    }
+  }
+
+  &__item:nth-child(n + 2) {
+    @include mq("lg") {
+      margin-bottom: -0.2rem;
     }
   }
 

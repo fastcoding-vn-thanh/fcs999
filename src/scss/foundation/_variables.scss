@@ -25,12 +25,14 @@
    * block above if the designer ever binds them. primary-light is the upper half of the
    * two-tone red button pill, primary-dark the footer buttons' shadow plate, header the
    * header's slanted red block (not --color-primary), field the border and placeholder
-   * of the hero form fields, shadow the card drop shadow (black at 25%). */
+   * of the hero form fields, shadow the card drop shadow (black at 25%), divider the
+   * problems list's dotted rules and vertical lines (black at 40%). */
   --color-primary-light: #f83030;
   --color-primary-dark: #6f0103;
   --color-header: #e92225;
   --color-field: #bbb;
   --color-shadow: rgb(0 0 0 / 25%);
+  --color-divider: rgb(0 0 0 / 40%);
 
   /* Noto Sans JP and Outfit load from Google Fonts in layouts/head.ejs. Avenir and
    * Avenir Next are not web fonts: they resolve on systems that have them, else Outfit. */
@@ -74,6 +76,7 @@ $color: (
   header: var(--color-header),
   field: var(--color-field),
   shadow: var(--color-shadow),
+  divider: var(--color-divider),
 );
 $font: (
   sans: var(--font-sans),

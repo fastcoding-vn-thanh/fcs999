@@ -7,7 +7,7 @@
   flex: 1 1 auto;
   flex-direction: column;
   min-width: 0;
-  padding: calc(4.45rem - 1px) calc(2rem - 1px) calc(2rem - 1px);
+  padding: calc(4.45rem - 1px) calc(2rem - 1px) calc(2.3rem - 1px);
   border: 1px solid map.get(v.$color, border-primary);
   border-radius: 2rem;
   background-color: #fff;
@@ -38,7 +38,7 @@
   }
 
   &__type + &__quote {
-    margin-top: 1.25rem;
+    margin-top: 1.45rem;
   }
 
   &__quote-close {
@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    margin: 2rem 2rem 1.6rem;
+    margin: 1.8rem 2rem 1.5rem;
     color: map.get(v.$color, text-secondary);
     font-size: map.get(v.$text, body-sm);
     font-weight: 700;
@@ -75,7 +75,7 @@
   &__spec {
     display: flex;
     align-items: center;
-    padding: 0.95rem 2rem;
+    padding: 0.965rem 2rem;
     font-size: map.get(v.$text, body-sm);
     font-weight: 700;
     line-height: 1.5;
@@ -85,7 +85,7 @@
     }
 
     &:not(:last-child) {
-      background-image: linear-gradient(to right, map.get(v.$color, border-secondary) 2px, transparent 2px);
+      background-image: linear-gradient(to right, map.get(v.$color, divider) 2px, transparent 2px);
       background-position: 7px 100%;
       background-repeat: repeat-x;
       background-size: 8px 2px;

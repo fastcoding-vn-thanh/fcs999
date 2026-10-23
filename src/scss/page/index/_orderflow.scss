@@ -52,7 +52,7 @@
   }
 
   &__lead {
-    margin: 3.325rem 0 4rem;
+    margin: 3.625rem 0 2.9rem;
     color: map.get(v.$color, text-secondary);
     font-size: map.get(v.$text, body-md);
     font-weight: 500;
@@ -83,7 +83,7 @@
     @include mq("lg") {
       flex: 1 1 0;
       align-content: start;
-      row-gap: 5.32rem;
+      row-gap: 5.34rem;
       min-width: 0;
       margin-top: 0;
     }
@@ -93,17 +93,23 @@
     position: relative;
   }
 
+  &__item:last-child {
+    @include mq("lg") {
+      margin-bottom: -0.76rem;
+    }
+  }
+
   &__item:not(:last-child)::before {
     position: absolute;
     top: 2.9rem;
     bottom: calc(-4rem - 2.9rem);
     left: calc(1.6rem - 1px);
     width: 2px;
-    background: linear-gradient(to bottom, map.get(v.$color, border-secondary) 2px, transparent 2px) 0 0 / 2px 6px repeat-y;
+    background: linear-gradient(to bottom, map.get(v.$color, divider) 2px, transparent 2px) 0 0 / 2px 6px repeat-y;
     content: "";
 
     @include mq("lg") {
-      bottom: calc(-5.32rem - 2.9rem);
+      bottom: calc(-5.34rem - 2.9rem);
     }
   }
 }

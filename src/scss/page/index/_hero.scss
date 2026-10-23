@@ -29,7 +29,7 @@
     gap: 6.4rem;
     padding: 6.2rem max(4rem, calc((100% - 108rem) / 2));
     background:
-      url("../img/top/bg_hero.png") right center / cover no-repeat,
+      url("../img/top/bg_hero.png") right -4rem / cover no-repeat,
       linear-gradient(to left, map.get(v.$color, primary) 0, #fff 59%);
   }
 
@@ -52,6 +52,7 @@
     gap: 3.2rem;
     width: 100%;
     max-width: 52rem;
+    padding-top: 0.1rem;
 
     @include mq("lg") {
       flex: 1 1 0;
@@ -61,7 +62,7 @@
   }
 
   &__eyebrow {
-    margin-bottom: -2.2rem;
+    margin-bottom: -2.5rem;
     color: map.get(v.$color, primary);
     font-family: map.get(v.$font, en);
     font-size: map.get(v.$text, body-lg);
@@ -71,6 +72,7 @@
   }
 
   &__title {
+    margin-bottom: -0.8rem;
     font-size: 2.8rem;
     font-weight: 900;
     line-height: 1.5;
@@ -90,7 +92,7 @@
 
   &__subtitle {
     margin-top: -0.45rem;
-    margin-bottom: -0.55rem;
+    margin-bottom: -0.65rem;
     font-size: map.get(v.$text, body-lg);
     font-weight: 900;
     line-height: 1.5;
@@ -105,6 +107,7 @@
   }
 
   &__lead {
+    margin-bottom: -0.96rem;
     color: map.get(v.$color, text-secondary);
     font-size: map.get(v.$text, body-md);
     font-weight: 500;
@@ -138,6 +141,7 @@
   &__card-head {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.6rem;
     width: 100%;
   }
@@ -149,11 +153,16 @@
 
     @include mq("md") {
       width: 11.5rem;
+      height: 10.6rem;
     }
   }
 
   &__card-text {
     min-width: 0;
+
+    @include mq("md") {
+      min-width: 28.1rem;
+    }
   }
 
   &__card-eyebrow {

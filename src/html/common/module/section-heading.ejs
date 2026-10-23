@@ -12,8 +12,10 @@
   const sizeClass = size === 'md' ? 'c-section-heading--md' : '';
   const ruleClass = rule ? 'c-section-heading--rule' : '';
   const themeClass = theme === 'dark' ? 'c-section-heading--dark' : '';
+  const shortClass = locals.short ? 'c-section-heading--short' : '';
+  const numeralClass = locals.numeralSize === 'lg' ? 'c-section-heading--numeral-lg' : '';
 %>
-<div class="c-section-heading <%= sizeClass %> <%= ruleClass %> <%= themeClass %>">
+<div class="c-section-heading <%= sizeClass %> <%= ruleClass %> <%= themeClass %> <%= numeralClass %> <%= shortClass %>">
   <% if (eyebrow) { %>
   <p class="c-section-heading__eyebrow"><%= eyebrow %></p>
   <% } %>

@@ -20,7 +20,7 @@
       display: flex;
       align-items: flex-start;
       gap: 4rem;
-      margin-top: 4.8rem;
+      margin-top: 4.02rem;
     }
   }
 
@@ -78,8 +78,20 @@
     }
   }
 
+  &__text-br {
+    display: none;
+
+    @include mq("xl") {
+      display: inline;
+    }
+  }
+
   &__action {
     margin-top: 4rem;
+
+    @include mq("lg") {
+      margin-top: 2.74rem;
+    }
   }
 
   &__list {
@@ -91,6 +103,10 @@
     @include mq("md") {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 2rem;
+    }
+
+    @include mq("lg") {
+      margin-top: 3.95rem;
     }
   }
 }
