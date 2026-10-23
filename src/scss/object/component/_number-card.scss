@@ -31,10 +31,10 @@
   &__number {
     margin-top: 2.4rem;
     color: map.get(v.$color, primary);
-    font-family: map.get(v.$font, en);
+    font-family: "Avenir Next", map.get(v.$font, en);
     font-size: 4.8rem;
     font-style: italic;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1;
     white-space: nowrap;
     opacity: 0.15;
