@@ -2,10 +2,11 @@
 @use "../../foundation/variables" as v;
 @use "../../foundation/mixins" as *;
 
-/* Small screen first. The section has no minimum width (RSP-04): it stacks below lg and
- * becomes the designed row from lg, where the 108rem column is centred by padding
+/* Small screen first. The section has no minimum width (RSP-04): it stacks below 62rem = 992px (the
+ * narrowest width at which the 52rem card and the 35.2rem title line fit side by side) and
+ * becomes the designed row from there, where the 108rem column is centred by padding
  * (180 on the 1440 frame). The art panel is the 1440x634 frame in one picture, the section's
- * background-image from lg (IMG-17); below it the gradient is drawn in CSS. */
+ * background-image from 62rem (IMG-17); below it the gradient is drawn in CSS. */
 .p-index-hero {
   position: relative;
   display: flex;
@@ -24,13 +25,17 @@
     padding: 6rem 4rem 6.2rem;
   }
 
-  @include mq("lg") {
+  @include mq(62rem) {
     flex-direction: row;
-    gap: 6.4rem;
+    gap: 3.2rem;
     padding: 6.2rem max(4rem, calc((100% - 108rem) / 2));
     background:
       url("../img/top/bg_hero.png") right -4rem / cover no-repeat,
       linear-gradient(to left, map.get(v.$color, primary) 0, #fff 59%);
+  }
+
+  @include mq("lg") {
+    gap: 6.4rem;
   }
 
   &__breadcrumb {
@@ -54,7 +59,11 @@
     max-width: 52rem;
     padding-top: 0.1rem;
 
-    @include mq("lg") {
+    @include mq("md") {
+      max-width: none;
+    }
+
+    @include mq(62rem) {
       flex: 1 1 0;
       max-width: 49.6rem;
       min-width: 0;
@@ -88,6 +97,10 @@
 
   &__title-line {
     display: inline-block;
+
+    @include mq("md") {
+      display: block;
+    }
   }
 
   &__subtitle {
@@ -132,7 +145,17 @@
       padding: 4rem;
     }
 
-    @include mq("lg") {
+    @include mq-between("md", 50rem) {
+      align-self: flex-start;
+    }
+
+    @include mq-between(50rem, 62rem) {
+      flex-direction: row;
+      gap: 4rem;
+      max-width: none;
+    }
+
+    @include mq(62rem) {
       flex: none;
       width: 52rem;
     }
@@ -144,6 +167,13 @@
     justify-content: center;
     gap: 1.6rem;
     width: 100%;
+
+    @include mq-between(50rem, 62rem) {
+      flex: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 30rem;
+    }
   }
 
   &__card-img {
@@ -188,6 +218,11 @@
     align-items: center;
     gap: 2rem;
     width: 100%;
+
+    @include mq-between(50rem, 62rem) {
+      flex: 1 1 0;
+      min-width: 0;
+    }
   }
 
   &__fields {

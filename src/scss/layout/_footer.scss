@@ -94,8 +94,11 @@
       background-color: #fff;
     }
 
-    @include mq("xl") {
+    @include mq("md") {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq("xl") {
       margin-top: 4.4rem;
     }
   }
@@ -126,7 +129,7 @@
       border-radius: 2rem 2rem 0 0;
       background-color: map.get(v.$color, bg-primary);
 
-      @include mq("xl") {
+      @include mq("md") {
         border-radius: 2rem 0 0 2rem;
       }
     }
@@ -147,12 +150,7 @@
         background-color: map.get(v.$color, border-secondary);
       }
 
-      @include mq("xl") {
-        --cta-icon-width: 10.7rem;
-        --cta-icon-height: 10.9rem;
-        --cta-icon-gap: 3.2rem;
-
-        padding-left: 4rem;
+      @include mq("md") {
         border-radius: 0 1rem 1rem 0;
 
         &::before {
@@ -160,6 +158,14 @@
           width: 3px;
           height: auto;
         }
+      }
+
+      @include mq("xl") {
+        --cta-icon-width: 10.7rem;
+        --cta-icon-height: 10.9rem;
+        --cta-icon-gap: 3.2rem;
+
+        padding-left: 4rem;
       }
     }
 

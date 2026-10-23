@@ -23,13 +23,23 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include mq("lg") {
+    @include mq(60rem) {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq("lg") {
       margin-top: 4.08rem;
     }
   }
 
   &__item {
     display: flex;
+  }
+
+  /* Media queries resolve rem against 16px (BEM-09): 60rem is 960px. Two columns hold three cards only if the last one takes the whole row; a lone card in a half row is the empty space this avoids. */
+  &__item:last-child:nth-child(odd) {
+    @include mq-between("md", 60rem) {
+      grid-column: 1 / -1;
+    }
   }
 }

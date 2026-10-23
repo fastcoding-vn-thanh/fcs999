@@ -16,9 +16,13 @@
   &__aimes {
     margin-top: 4rem;
 
-    @include mq("lg") {
+    @include mq("md") {
       display: flex;
       align-items: flex-start;
+      gap: 2.4rem;
+    }
+
+    @include mq("lg") {
       gap: 4rem;
       margin-top: 4.02rem;
     }
@@ -29,20 +33,28 @@
     width: 100%;
     height: auto;
 
+    @include mq("md") {
+      flex: 53 1 0;
+      min-width: 0;
+    }
+
     @include mq("lg") {
       flex: 0 1 53rem;
-      min-width: 0;
     }
   }
 
   &__body {
     margin-top: 3.2rem;
 
-    @include mq("lg") {
-      flex: 1 1 0;
+    @include mq("md") {
+      flex: 51 1 0;
       min-width: 0;
       max-width: 51.2rem;
       margin-top: 0;
+    }
+
+    @include mq("lg") {
+      flex: 1 1 0;
     }
   }
 

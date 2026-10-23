@@ -3,14 +3,18 @@
 @use "../../foundation/mixins" as *;
 
 .p-index-quality-item {
-  @include mq("lg") {
+  @include mq("md") {
     display: flex;
     align-items: flex-start;
+    gap: 2.4rem;
+  }
+
+  @include mq("lg") {
     gap: 4rem;
   }
 
   &--reverse {
-    @include mq("lg") {
+    @include mq("md") {
       flex-direction: row-reverse;
     }
   }
@@ -22,7 +26,7 @@
     aspect-ratio: 530 / 340;
     border-radius: 1rem;
 
-    @include mq("lg") {
+    @include mq("md") {
       flex: 0 1 53rem;
       min-width: 0;
     }
@@ -31,7 +35,7 @@
   &__body {
     margin-top: 2.4rem;
 
-    @include mq("lg") {
+    @include mq("md") {
       flex: 1 1 51rem;
       min-width: 0;
       margin-top: 0;
