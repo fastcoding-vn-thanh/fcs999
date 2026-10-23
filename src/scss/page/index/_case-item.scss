@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+
+.p-index-case-item {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  padding: calc(4.45rem - 1px) calc(2rem - 1px) calc(2rem - 1px);
+  border: 1px solid map.get(v.$color, border-primary);
+  border-radius: 2rem;
+  background-color: #fff;
+
+  &__quote-open {
+    position: absolute;
+    top: calc(2.4rem - 1px);
+    left: calc(2rem - 1px);
+    width: 4.4rem;
+    height: 3rem;
+  }
+
+  &__type {
+    position: relative;
+    margin: 0 2rem;
+    color: map.get(v.$color, primary);
+    font-size: map.get(v.$text, body-sm);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__quote {
+    position: relative;
+    margin: 0 2rem;
+    font-size: map.get(v.$text, h4);
+    font-weight: 900;
+    line-height: 1.5;
+  }
+
+  &__type + &__quote {
+    margin-top: 1.25rem;
+  }
+
+  &__quote-close {
+    display: block;
+    flex: none;
+    align-self: flex-end;
+    width: 4.4rem;
+    height: 3rem;
+    margin-top: -2.65rem;
+    transform: scaleX(-1);
+  }
+
+  &__client {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 2rem 2rem 1.6rem;
+    color: map.get(v.$color, text-secondary);
+    font-size: map.get(v.$text, body-sm);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__client-icon {
+    flex: none;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__specs {
+    margin-top: auto;
+  }
+
+  &__spec {
+    display: flex;
+    align-items: center;
+    padding: 0.95rem 2rem;
+    font-size: map.get(v.$text, body-sm);
+    font-weight: 700;
+    line-height: 1.5;
+
+    &:nth-child(even) {
+      background-color: map.get(v.$color, bg-primary);
+    }
+
+    &:not(:last-child) {
+      background-image: linear-gradient(to right, map.get(v.$color, border-secondary) 2px, transparent 2px);
+      background-position: 7px 100%;
+      background-repeat: repeat-x;
+      background-size: 8px 2px;
+    }
+  }
+
+  &__spec-label {
+    flex: none;
+  }
+
+  &__spec-value {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}

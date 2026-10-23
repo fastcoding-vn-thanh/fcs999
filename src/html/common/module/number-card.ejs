@@ -1,0 +1,33 @@
+<%
+  const number = locals.number ?? '';
+  const title = locals.title;
+  const text = locals.text ?? '';
+  const icon = locals.icon ?? null;
+  const headingTag = locals.headingTag ?? 'h3';
+  const iconAsset = icon && /^https?:\/\//.test(icon.src) ? icon.nodeId : '';
+  const iconStyle = icon && icon.offset ? `margin-left: ${icon.offset / 10}rem` : '';
+%>
+<div class="c-number-card">
+  <div class="c-number-card__head">
+    <% if (icon) { %>
+    <img
+      class="c-number-card__icon"
+      src="<%= icon.src %>"
+      alt="Icon"
+      width="<%= icon.width %>"
+      height="<%= icon.height %>"
+      loading="lazy"
+      aria-hidden="true"
+      <% if (iconStyle) { %>style="<%= iconStyle %>"<% } %>
+      <% if (iconAsset) { %>data-figma-asset="<%= iconAsset %>"<% } %>
+    />
+    <% } %>
+    <% if (number) { %>
+    <p class="c-number-card__number"><%= number %></p>
+    <% } %>
+  </div>
+  <<%= headingTag %> class="c-number-card__title"><%= title %></<%= headingTag %>>
+  <% if (text) { %>
+  <p class="c-number-card__text"><%= text %></p>
+  <% } %>
+</div>

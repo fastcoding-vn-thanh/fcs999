@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+
+.c-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+  font-size: map.get(v.$text, body-lg);
+  font-weight: 600;
+  line-height: 1.5;
+
+  &::before {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.35rem;
+    border-radius: 0.5rem;
+    background-color: map.get(v.$color, primary);
+    content: "";
+  }
+}

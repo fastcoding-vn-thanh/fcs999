@@ -1,0 +1,8 @@
+<%
+  const label = locals.label;
+  const href = locals.href ?? '#';
+  const size = locals.size ?? 'm';
+  const sizeClass = size === 's' ? 'c-button-more--s' : size === 'l' ? 'c-button-more--l' : '';
+  const placeholder = href === '#' ? 'data-placeholder' : '';
+%>
+<a class="c-button-more <%= sizeClass %>" href="<%= href %>" <%= placeholder %>><%= label %></a>

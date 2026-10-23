@@ -1,6 +1,28 @@
-<%#
-  Section : pricing
-  Page    : / (top)
-  Figma   : 1517:3652
-  Status  : not generated
+<%
+  const checks = [
+    'ページ数とテンプレート数',
+    'JavaScriptやCMSなどの追加要件',
+    '共通部品の数と再利用範囲',
+    '希望納期とFigmaの入稿時期',
+    'PC・SP・タブレットの複雑さ',
+    'CSS設計と品質検査の範囲',
+  ];
 %>
+<section class="p-index-pricing" aria-labelledby="pricing-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'pricing-title',
+    eyebrow: 'PRICING',
+    title: '料金・お見積もり',
+    lead: ['料金は案件ごとの個別見積もりです。ページ数だけでなく、サイト構造や追加要件、希望納期を確認して算出します。'],
+  }) %>
+  <div class="p-index-pricing__panel">
+    <ul class="p-index-pricing__list">
+      <% checks.forEach((check) => { %>
+      <%- include('common/module/check-item.ejs', { text: check }) %>
+      <% }) %>
+    </ul>
+    <div class="p-index-pricing__action">
+      <%- include('common/module/button-contact.ejs', { label: '概算見積もりを依頼する', href: '#' }) %>
+    </div>
+  </div>
+</section>

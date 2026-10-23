@@ -1,0 +1,61 @@
+@use "../../foundation/mixins" as *;
+
+.p-index-pricing {
+  padding: 6.4rem 2rem 0;
+
+  @include mq("md") {
+    padding: 8rem 4rem 0;
+  }
+
+  @include mq("lg") {
+    --section-heading-lead-gap: 1.005rem;
+
+    padding: 10.4rem max(4rem, calc((100% - 108rem) / 2)) 0;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-top: 3.2rem;
+    padding: 2.4rem 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+
+    @include mq("md") {
+      padding: 3.2rem 4rem;
+    }
+
+    @include mq("lg") {
+      flex-direction: row;
+      align-items: center;
+      margin-top: 4.08rem;
+      padding: 4.45rem 4.8rem;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.7rem;
+
+    @include mq("md") {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2.4rem;
+    }
+
+    @include mq("lg") {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+
+    @include mq("lg") {
+      flex: none;
+    }
+  }
+}

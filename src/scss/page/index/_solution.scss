@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+.p-index-solution {
+  padding: 6.4rem 2rem 0;
+
+  @include mq("md") {
+    padding: 8rem 4rem 0;
+  }
+
+  @include mq("lg") {
+    padding: 10.4rem max(4rem, calc((100% - 108rem) / 2)) 0;
+  }
+
+  &__aimes {
+    margin-top: 4rem;
+
+    @include mq("lg") {
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      margin-top: 4.8rem;
+    }
+  }
+
+  &__capture {
+    aspect-ratio: 530 / 376;
+    width: 100%;
+    height: auto;
+
+    @include mq("lg") {
+      flex: 0 1 53rem;
+      min-width: 0;
+    }
+  }
+
+  &__body {
+    margin-top: 3.2rem;
+
+    @include mq("lg") {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 51.2rem;
+      margin-top: 0;
+    }
+  }
+
+  &__catch {
+    font-size: map.get(v.$text, body-md);
+    font-weight: 600;
+    line-height: 1.8;
+
+    @include mq("md") {
+      font-size: map.get(v.$text, body-lg);
+    }
+  }
+
+  &__name {
+    margin-top: 1.22rem;
+    font-family: map.get(v.$font, en);
+    font-size: 5.625rem;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__text {
+    margin-top: 2.875rem;
+    color: map.get(v.$color, text-secondary);
+    font-size: map.get(v.$text, body-md);
+    font-weight: 600;
+    line-height: 1.8;
+
+    @include mq("md") {
+      font-size: map.get(v.$text, body-lg);
+    }
+  }
+
+  &__action {
+    margin-top: 4rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    margin-top: 4rem;
+
+    @include mq("md") {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2rem;
+    }
+  }
+}

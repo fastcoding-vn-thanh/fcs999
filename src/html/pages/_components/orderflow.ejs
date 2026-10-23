@@ -1,6 +1,65 @@
-<%#
-  Section : orderflow
-  Page    : / (top)
-  Figma   : 1531:9393
-  Status  : not generated
+<%
+  const items = [
+    {
+      number: '1',
+      title: '案件相談',
+      text: '対象範囲や必要資料、事前確認事項、お見積もりまでの流れをご案内します。',
+    },
+    {
+      number: '2',
+      title: 'Figmaデータの事前確認',
+      text: 'そのまま実装できるか、修正や追加が必要な箇所をご案内します。',
+    },
+    {
+      number: '3',
+      title: 'お見積もり・ご提案',
+      text: 'お見積もりや制作条件、対象外作業などをご提示します。',
+    },
+    {
+      number: '4',
+      title: '実装基準の確認',
+      text: '基準ページや共通部品、表示確認の基準を整理し、実装ルールを確定します。',
+    },
+    {
+      number: '5',
+      title: '制作中の確認',
+      text: '質問事項を整理し、追加・変更による納期や費用への影響をご案内します。',
+    },
+    {
+      number: '6',
+      title: '最終確認・納品',
+      text: 'HTML・CSS・JavaScriptや画像・アセットなど、合意した成果物を納品します。',
+    },
+  ];
 %>
+<section class="p-index-orderflow" aria-labelledby="orderflow-title">
+  <div class="p-index-orderflow__intro">
+    <%- include('common/module/section-heading.ejs', {
+      id: 'orderflow-title',
+      eyebrow: 'ORDERFLOW',
+      title: 'ご依頼の流れ',
+    }) %>
+    <p class="p-index-orderflow__lead">ご相談からお見積もり、制作、品質確認、納品まで、専任チームが一貫してサポートします。必要な確認事項や追加・変更にも対応しながら、スムーズに制作を進めます。</p>
+    <%- include('common/module/button-more.ejs', {
+      label: '詳しく見る',
+      href: path + '/flow/',
+      size: 'm',
+    }) %>
+    <img
+      class="p-index-orderflow__illust"
+      src="<%= path %>/img/top/ill_orderflow.png"
+      alt="Illustration"
+      width="440"
+      height="310"
+      loading="lazy"
+      aria-hidden="true"
+    />
+  </div>
+  <ol class="p-index-orderflow__list">
+    <% items.forEach((item) => { %>
+    <li class="p-index-orderflow__item">
+      <%- include('_components/orderflow-item.ejs', item) %>
+    </li>
+    <% }) %>
+  </ol>
+</section>

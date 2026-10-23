@@ -1,0 +1,5 @@
+<%
+  const text = locals.text;
+  const lines = Array.isArray(text) ? text : [text];
+%>
+<li class="c-check-item"><% lines.forEach((line, i) => { %><% if (i > 0) { %><br /><% } %><%= line %><% }) %></li>

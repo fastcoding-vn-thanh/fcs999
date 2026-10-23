@@ -4,27 +4,18 @@
 
 /* Line-height floors per LAY-06: the title 1.3, running text 1.5; the vertical margins at xl
  * carry the arithmetic (see the layout decisions), so line 1 sits where the frame puts it.
- * Below xl the card stacks its two links. The art is one decorative picture behind the
- * content, cropped by `cover`. */
+ * Below xl the card stacks its two links. The art is the footer's own background-image
+ * (IMG-17), cropped by `cover`. */
 .l-footer {
   position: relative;
   overflow: hidden;
   padding: 4.8rem 0 5rem;
-  background-color: map.get(v.$color, primary);
+  background: url("../img/common/bg_footer.png") center / cover no-repeat map.get(v.$color, primary);
   color: #fff;
   font-family: map.get(v.$font, sans);
 
   @include mq("xl") {
     padding: 8rem 0 9rem;
-  }
-
-  &__art {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
   }
 
   &__inner {

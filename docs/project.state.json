@@ -12,6 +12,60 @@
       "reviewed": {
         "date": "2026-10-23",
         "sha": "7a94fee68742"
+      },
+      "pc": {
+        "sha": "7a94fee68742",
+        "bands": 12,
+        "maxPoints": 3517,
+        "date": "2026-10-23"
+      }
+    },
+    "top/solution": {
+      "pc": {
+        "sha": "1b33c663fcc2",
+        "bands": 12,
+        "maxPoints": 2925,
+        "date": "2026-10-23"
+      }
+    },
+    "top/quality": {
+      "pc": {
+        "sha": "71e30cc04bc5",
+        "bands": 17,
+        "maxPoints": 1332,
+        "date": "2026-10-23"
+      }
+    },
+    "top/pricing": {
+      "pc": {
+        "sha": "76cd25fde681",
+        "bands": 4,
+        "maxPoints": 1476,
+        "date": "2026-10-23"
+      }
+    },
+    "top/results": {
+      "pc": {
+        "sha": "95adbcd8ea23",
+        "bands": 7,
+        "maxPoints": 2233,
+        "date": "2026-10-23"
+      }
+    },
+    "top/orderflow": {
+      "pc": {
+        "sha": "3f15663e12d9",
+        "bands": 10,
+        "maxPoints": 2397,
+        "date": "2026-10-23"
+      }
+    },
+    "top/faq": {
+      "pc": {
+        "sha": "4e678a4d2fd7",
+        "bands": 7,
+        "maxPoints": 1011,
+        "date": "2026-10-23"
       }
     }
   }

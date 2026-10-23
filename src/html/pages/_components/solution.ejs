@@ -1,6 +1,65 @@
-<%#
-  Section : solution
-  Page    : / (top)
-  Figma   : 1517:3728
-  Status  : not generated
+<%
+  const cards = [
+    {
+      number: '01',
+      title: '検査待ちを可視化',
+      text: '必要な検査が終わるまで、ページを完了状態にしません。',
+      icon: { src: path + '/img/top/icn_solution_visualize.svg', nodeId: '1517:3735', width: 104, height: 100, offset: -4 },
+    },
+    {
+      number: '02',
+      title: 'AIから人へ戻す',
+      text: '判断できない確認事項は、コーダーやQCへ戻します。',
+      icon: { src: path + '/img/top/icn_solution_handback.svg', nodeId: '1602:6025', width: 121, height: 100, offset: -13 },
+    },
+    {
+      number: '03',
+      title: '修正後は再確認',
+      text: '修正が入った場合は、確認済みで終わらせず再検査します。',
+      icon: { src: path + '/img/top/icn_solution_recheck.svg', nodeId: '1517:3749', width: 104, height: 100, offset: 0 },
+    },
+    {
+      number: '04',
+      title: '納品条件を管理',
+      text: 'Evidenceと承認状態を確認し、条件を満たしてから納品します。',
+      icon: { src: path + '/img/top/icn_solution_delivery.svg', nodeId: '1517:3756', width: 100, height: 100, offset: 0 },
+    },
+  ];
 %>
+<section class="p-index-solution" aria-labelledby="solution-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'solution-title',
+    eyebrow: 'SOLUTION',
+    title: 'AIの速さと、専門会社の品質を両立。',
+    lead: [
+      '長年のHTMLコーディングで蓄積した判断基準を、AIへの入力、実装ルール、検査項目、完了条件としてワークフロー化。AIMESがAI・コーダー・専任QCを動かし、必要な確認が終わるまで工程を進めます。',
+    ],
+  }) %>
+  <div class="p-index-solution__aimes">
+    <img
+      class="p-index-solution__capture"
+      src="<%= path %>/img/top/img_aimes_capture.png"
+      alt="AIMES運用画面"
+      width="530"
+      height="376"
+      loading="lazy"
+    />
+    <div class="p-index-solution__body">
+      <hgroup>
+        <p class="p-index-solution__catch">品質Workflowを省略せず実行する<br />自社開発システム</p>
+        <h3 class="p-index-solution__name">AIMES</h3>
+      </hgroup>
+      <p class="p-index-solution__text">AI、コーダー、専任QC、検査ツールを、定めたWorkflowに沿って動かします。必要な検査が終わっていないページは完了にせず、判断できない内容は人へ戻し、修正後は再確認します。</p>
+      <div class="p-index-solution__action">
+        <%- include('common/module/button-contact.ejs', { label: '案件について相談する', href: '#' }) %>
+      </div>
+    </div>
+  </div>
+  <ul class="p-index-solution__list">
+    <% cards.forEach((card) => { %>
+    <li>
+      <%- include('common/module/number-card.ejs', card) %>
+    </li>
+    <% }) %>
+  </ul>
+</section>

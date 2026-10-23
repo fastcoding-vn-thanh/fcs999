@@ -1,0 +1,52 @@
+<%
+  const type = locals.type ?? '';
+  const quote = locals.quote;
+  const client = locals.client ?? '';
+  const specs = locals.specs ?? [];
+%>
+<article class="p-index-case-item">
+  <img
+    class="p-index-case-item__quote-open"
+    src="<%= path %>/img/top/icn_quote_open.svg"
+    alt="Quote"
+    width="44"
+    height="30"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <% if (type) { %>
+  <p class="p-index-case-item__type"><%= type %></p>
+  <% } %>
+  <h3 class="p-index-case-item__quote"><%= quote %></h3>
+  <img
+    class="p-index-case-item__quote-close"
+    src="<%= path %>/img/top/icn_quote_close.svg"
+    alt="Quote"
+    width="44"
+    height="30"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <% if (client) { %>
+  <p class="p-index-case-item__client">
+    <img
+      class="p-index-case-item__client-icon"
+      src="<%= path %>/img/top/icn_user.svg"
+      alt="User"
+      width="30"
+      height="30"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <%= client %>
+  </p>
+  <% } %>
+  <dl class="p-index-case-item__specs">
+    <% specs.forEach((spec) => { %>
+    <div class="p-index-case-item__spec">
+      <dt class="p-index-case-item__spec-label"><%= spec.label %></dt>
+      <dd class="p-index-case-item__spec-value"><%= spec.value %></dd>
+    </div>
+    <% }) %>
+  </dl>
+</article>

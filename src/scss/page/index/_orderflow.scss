@@ -1,0 +1,109 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+.p-index-orderflow {
+  margin: 6.4rem 1rem 0;
+  padding: 4rem 1rem;
+  border-radius: 2rem;
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, #fff, transparent 47.115%, #fff);
+    content: "";
+    opacity: 0.7;
+  }
+
+  @include mq("md") {
+    margin: 8rem 2rem 0;
+    padding: 6rem 2rem;
+    border-radius: 4rem;
+  }
+
+  @include mq("lg") {
+    display: flex;
+    align-items: stretch;
+    gap: 4rem;
+    margin: 10.4rem max(2rem, calc((100% - 124rem) / 2)) 0;
+    padding: 8rem 4rem;
+  }
+
+  @include mq("xl") {
+    padding: 8rem;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include mq("lg") {
+      display: grid;
+      flex: 0 1 42.8rem;
+      grid-template-rows: auto auto auto 1fr;
+      justify-items: start;
+      min-width: 0;
+    }
+  }
+
+  &__lead {
+    margin: 3.325rem 0 4rem;
+    color: map.get(v.$color, text-secondary);
+    font-size: map.get(v.$text, body-md);
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  &__illust {
+    align-self: center;
+    width: 100%;
+    max-width: 44rem;
+    height: auto;
+    aspect-ratio: 440 / 310;
+    margin-top: 4rem;
+
+    @include mq("lg") {
+      align-self: end;
+      width: 44rem;
+      max-width: calc(100% + 3rem);
+      margin-left: -3rem;
+    }
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 4rem;
+    margin-top: 4rem;
+
+    @include mq("lg") {
+      flex: 1 1 0;
+      align-content: start;
+      row-gap: 5.32rem;
+      min-width: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item:not(:last-child)::before {
+    position: absolute;
+    top: 2.9rem;
+    bottom: calc(-4rem - 2.9rem);
+    left: calc(1.6rem - 1px);
+    width: 2px;
+    background: linear-gradient(to bottom, map.get(v.$color, border-secondary) 2px, transparent 2px) 0 0 / 2px 6px repeat-y;
+    content: "";
+
+    @include mq("lg") {
+      bottom: calc(-5.32rem - 2.9rem);
+    }
+  }
+}

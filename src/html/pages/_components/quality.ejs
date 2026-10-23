@@ -1,6 +1,49 @@
-<%#
-  Section : quality
-  Page    : / (top)
-  Figma   : 1517:3686
-  Status  : not generated
+<%
+  const items = [
+    {
+      number: '01',
+      image: { src: path + '/img/top/img_quality_01.png' },
+      title: 'PC・SP・タブレットのデザイン分析',
+      text: 'Figmaを解析し、PC・SP・タブレットで同じ要素がどう変化するかを整理します。表示順、非表示条件、余白、レイアウトの変化を人が確認してから実装します。',
+      button: { label: '詳しく見る', href: '#' },
+    },
+    {
+      number: '02',
+      image: { src: path + '/img/top/img_quality_02.png' },
+      title: 'サイト構造と共通部品の分析',
+      text: 'サイトマップとデザインを基に、ページ、セクション、共通コンポーネントを先に定義します。ページごとの構造のばらつきや、誤った共通化を防ぎます。',
+      button: { label: '詳しく見る', href: '#' },
+      reverse: true,
+    },
+    {
+      number: '03',
+      image: { src: path + '/img/top/img_quality_03.png' },
+      title: 'Figmaとブラウザ表示の比較',
+      text: 'PlaywrightでFigmaとPC・SP・タブレットの実装画面を比較し、専任QCが標準端末でも確認します。フォント、改行、余白、配置の差異を修正します。',
+      button: { label: '詳しく見る', href: '#' },
+    },
+    {
+      number: '04',
+      image: { src: path + '/img/top/img_quality_04.png' },
+      title: 'ルール別の自動監査とAIレビュー',
+      text: '機械判定できる項目はスクリプト、文脈判断が必要な項目はAIがレビューします。問題は修正工程へ戻し、修正後まで再確認します。',
+      button: { label: '詳しく見る', href: '#' },
+      reverse: true,
+    },
+  ];
 %>
+<section class="p-index-quality" aria-labelledby="quality-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'quality-title',
+    eyebrow: 'QUALITY',
+    title: '{n}つの特長',
+    numeral: '4',
+  }) %>
+  <ul class="p-index-quality__list">
+    <% items.forEach((item) => { %>
+    <li>
+      <%- include('_components/quality-item.ejs', item) %>
+    </li>
+    <% }) %>
+  </ul>
+</section>

@@ -1,6 +1,25 @@
-<%#
-  Section : results
-  Page    : / (top)
-  Figma   : 1517:3641
-  Status  : not generated
+<%
+  const specLabels = ['総ページ数：', '想定期間：', '実際の制作期間：', 'Figmaの入稿方法：', '実施した品質検査：'];
+  const item = {
+    type: 'サイト種別が入ります',
+    quote: 'ダミーダミーダミーダミーダミーダミーダミーダミーダミー',
+    client: '株式会社ダミーダミー 様',
+    specs: specLabels.map((label) => ({ label, value: '' })),
+  };
+  const items = [item, item, item];
 %>
+<section class="p-index-results" aria-labelledby="results-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'results-title',
+    eyebrow: 'RESULTS',
+    title: '制作実績',
+    lead: ['案件の規模、追加要件、従来想定工数、本サービスでの実績工数、品質結果を同じ基準で掲載します。'],
+  }) %>
+  <ul class="p-index-results__list">
+    <% items.forEach((entry) => { %>
+    <li class="p-index-results__item">
+      <%- include('_components/case-item.ejs', entry) %>
+    </li>
+    <% }) %>
+  </ul>
+</section>

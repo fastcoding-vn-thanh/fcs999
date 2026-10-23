@@ -69,7 +69,7 @@
         let target = null;
         try {
           target = document.querySelector(hash);
-        } catch (_a) {
+        } catch {
           // invalid selector (#1abc, #/x): no target
           return;
         }
@@ -82,13 +82,10 @@
       };
       document.querySelectorAll('a[href*="#"]:not([href="#"])').forEach((anchor) => {
         anchor.addEventListener('click', (event) => {
-          var _a;
           if (anchor.classList.contains('js-no-scroll')) {
             return;
           }
-          const [pathPart, hashPart] = (
-            (_a = anchor.getAttribute('href')) !== null && _a !== void 0 ? _a : ''
-          ).split('#');
+          const [pathPart, hashPart] = (anchor.getAttribute('href') ?? '').split('#');
           const samePage = !pathPart || pathPart === window.location.pathname;
           if (!samePage || !hashPart) {
             return;
@@ -101,10 +98,25 @@
         window.setTimeout(() => scrollToHash(window.location.hash), 100);
       }
     };
+    /** FAQ accordion: each .js-faq-toggle flips is-open on its own .c-faq-item; the slide is CSS (JS-07). */
+    const faqAccordion = () => {
+      document.querySelectorAll('.js-faq-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const item = toggle.closest('.c-faq-item');
+          if (!item) {
+            return;
+          }
+          const open = !item.classList.contains('is-open');
+          item.classList.toggle('is-open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      });
+    };
     const init = () => {
       detectBrowsers();
       headerMenu();
       smoothScroll();
+      faqAccordion();
     };
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);

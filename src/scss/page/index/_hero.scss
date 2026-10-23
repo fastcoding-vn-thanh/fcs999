@@ -4,8 +4,8 @@
 
 /* Small screen first. The section has no minimum width (RSP-04): it stacks below lg and
  * becomes the designed row from lg, where the 108rem column is centred by padding
- * (180 on the 1440 frame). The art panel (bg) is the 1440x634 frame in one picture and
- * only exists from lg; below it the gradient is drawn in CSS. */
+ * (180 on the 1440 frame). The art panel is the 1440x634 frame in one picture, the section's
+ * background-image from lg (IMG-17); below it the gradient is drawn in CSS. */
 .p-index-hero {
   position: relative;
   display: flex;
@@ -28,27 +28,9 @@
     flex-direction: row;
     gap: 6.4rem;
     padding: 6.2rem max(4rem, calc((100% - 108rem) / 2));
-    background: linear-gradient(
-      to left,
-      map.get(v.$color, primary) 0,
-      #fff 59%
-    );
-  }
-
-  &__bg {
-    display: none;
-
-    @include mq("lg") {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right center;
-      pointer-events: none;
-    }
+    background:
+      url("../img/top/bg_hero.png") right center / cover no-repeat,
+      linear-gradient(to left, map.get(v.$color, primary) 0, #fff 59%);
   }
 
   &__breadcrumb {

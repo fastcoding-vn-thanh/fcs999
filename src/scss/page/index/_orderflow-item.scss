@@ -1,0 +1,49 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+.p-index-orderflow-item {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+  column-gap: 2rem;
+
+  &__number {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    align-self: start;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 1.3rem;
+    border-radius: 50%;
+    background-color: map.get(v.$color, border-secondary);
+    color: #fff;
+    font-family: map.get(v.$font, num);
+    font-size: map.get(v.$text, body-lg);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    min-height: 5.8rem;
+    padding: 1rem 2rem;
+    border: 1px solid map.get(v.$color, border-primary);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    font-size: map.get(v.$text, body-lg-bold);
+    font-weight: 900;
+    line-height: 1.3;
+  }
+
+  &__text {
+    grid-column: 2;
+    margin-top: 0.8rem;
+    color: map.get(v.$color, text-secondary);
+    font-size: map.get(v.$text, body-md);
+    font-weight: 500;
+    line-height: 1.8;
+  }
+}

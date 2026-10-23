@@ -78,7 +78,7 @@
     margin-top: 1.6rem;
 
     @include mq("lg") {
-      margin-top: 1.725rem;
+      margin-top: var(--section-heading-lead-gap, 1.725rem);
     }
   }
 

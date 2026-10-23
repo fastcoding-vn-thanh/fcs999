@@ -1,0 +1,29 @@
+<%
+  const number = locals.number;
+  const image = locals.image;
+  const title = locals.title;
+  const text = locals.text;
+  const reverse = locals.reverse ?? false;
+  const button = locals.button ?? null;
+  const reverseClass = reverse ? 'p-index-quality-item--reverse' : '';
+%>
+<div class="p-index-quality-item <%= reverseClass %>">
+  <img
+    class="p-index-quality-item__figure"
+    src="<%= image.src %>"
+    alt="QUALITY<%= number %>の画像"
+    width="530"
+    height="340"
+    loading="lazy"
+  />
+  <div class="p-index-quality-item__body">
+    <p class="p-index-quality-item__label">QUALITY｜<%= number %></p>
+    <h3 class="p-index-quality-item__title"><%= title %></h3>
+    <p class="p-index-quality-item__text"><%= text %></p>
+    <% if (button) { %>
+    <div class="p-index-quality-item__button">
+      <%- include('common/module/button-more.ejs', button) %>
+    </div>
+    <% } %>
+  </div>
+</div>

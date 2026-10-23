@@ -1,0 +1,35 @@
+@use "../../foundation/mixins" as *;
+
+.p-index-results {
+  padding: 6.4rem 2rem 0;
+
+  @include mq("md") {
+    padding: 8rem 4rem 0;
+  }
+
+  @include mq("lg") {
+    --section-heading-lead-gap: 1.005rem;
+
+    padding: 10.4rem max(4rem, calc((100% - 108rem) / 2)) 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.1rem;
+    margin-top: 3.2rem;
+
+    @include mq("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq("lg") {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 4.08rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+}
