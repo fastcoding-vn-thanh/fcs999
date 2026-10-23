@@ -109,10 +109,26 @@
     }
   };
 
+  /** FAQ accordion: each .js-faq-toggle flips is-open on its own .c-faq-item; the slide is CSS (JS-07). */
+  const faqAccordion = (): void => {
+    document.querySelectorAll<HTMLButtonElement>('.js-faq-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest<HTMLElement>('.c-faq-item');
+        if (!item) {
+          return;
+        }
+        const open = !item.classList.contains('is-open');
+        item.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    });
+  };
+
   const init = (): void => {
     detectBrowsers();
     headerMenu();
     smoothScroll();
+    faqAccordion();
   };
 
   if (document.readyState === 'loading') {

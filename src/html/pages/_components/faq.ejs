@@ -1,6 +1,37 @@
-<%#
-  Section : faq
-  Page    : / (top)
-  Figma   : 1535:9824
-  Status  : not generated
+<%
+  const items = [
+    {
+      id: 'top-faq-01',
+      question: 'どのような案件が対象ですか？',
+      answer: '原則として、総ページ数40ページ以上の中・大規模サイトが対象です。ページ数だけでなく、テンプレート数、共通部品、特殊ページ、JavaScriptやCMSの要件も確認し、本サービスが適しているか判断します。',
+      link: { label: 'サービス内容を見る', href: path + '/services/' },
+    },
+    {
+      id: 'top-faq-02',
+      question: '40ページ未満の案件も依頼できますか？',
+      answer: 'ダミーテキスト。40ページ未満の案件についても、内容を確認のうえ対応可否をご案内します。',
+    },
+    {
+      id: 'top-faq-03',
+      question: 'Figmaがすべて完成していなくても相談できますか？',
+      answer: 'ダミーテキスト。Figmaが完成していない段階でも、現状の進捗をもとにご相談いただけます。',
+    },
+  ];
 %>
+<section class="p-index-faq" aria-labelledby="faq-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'faq-title',
+    eyebrow: 'FAQ',
+    title: 'よくあるご質問',
+  }) %>
+  <ul class="p-index-faq__list">
+    <% items.forEach((item) => { %>
+    <li>
+      <%- include('common/module/faq-item.ejs', item) %>
+    </li>
+    <% }) %>
+  </ul>
+  <div class="p-index-faq__more">
+    <%- include('common/module/button-more.ejs', { label: 'よくある質問を見る', href: path + '/faq/', size: 'm' }) %>
+  </div>
+</section>

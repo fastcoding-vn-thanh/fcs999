@@ -1,0 +1,57 @@
+<%
+  const question = locals.question;
+  const answer = locals.answer ?? [];
+  const link = locals.link ?? null;
+  const open = locals.open ?? false;
+  const id = locals.id ?? '';
+  const paragraphs = (Array.isArray(answer) ? answer : [answer]).filter(Boolean);
+  const hasAnswer = paragraphs.length > 0 || Boolean(link);
+  const answerId = id && hasAnswer ? id + '-answer' : '';
+  const openClass = open ? 'is-open' : '';
+%>
+<div class="c-faq-item <%= openClass %>">
+  <h3>
+    <button
+      class="c-faq-item__toggle js-faq-toggle"
+      type="button"
+      aria-expanded="<%= open ? 'true' : 'false' %>"
+      <% if (answerId) { %>aria-controls="<%= answerId %>"<% } %>
+    >
+      <span class="c-faq-item__question"><%= question %></span>
+      <span class="c-faq-item__icon">
+        <img
+          class="c-faq-item__plus"
+          src="<%= path %>/img/common/icn_faq_plus.svg"
+          alt="Plus"
+          width="18"
+          height="18"
+          loading="lazy"
+          aria-hidden="true"
+        />
+        <img
+          class="c-faq-item__minus"
+          src="<%= path %>/img/common/icn_faq_minus.svg"
+          alt="Minus"
+          width="18"
+          height="3"
+          loading="lazy"
+          aria-hidden="true"
+        />
+      </span>
+    </button>
+  </h3>
+  <% if (hasAnswer) { %>
+  <div class="c-faq-item__answer"<% if (answerId) { %> id="<%= answerId %>"<% } %>>
+    <div class="c-faq-item__answer-inner">
+      <% paragraphs.forEach((paragraph) => { %>
+      <p class="c-faq-item__text"><%= paragraph %></p>
+      <% }) %>
+      <% if (link) { %>
+      <p class="c-faq-item__link">
+        <%- include('common/module/text-link.ejs', { label: link.label, href: link.href }) %>
+      </p>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+</div>
