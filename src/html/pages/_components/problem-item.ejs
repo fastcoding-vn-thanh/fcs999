@@ -1,0 +1,24 @@
+<%
+  const number = locals.number;
+  const eyebrow = locals.eyebrow;
+  const title = locals.title;
+  const sub = locals.sub;
+  const text = locals.text;
+  const link = locals.link ?? null;
+%>
+<div class="p-index-problem-item">
+  <div class="p-index-problem-item__head">
+    <span class="p-index-problem-item__number"><%= number %></span>
+    <div class="p-index-problem-item__heading">
+      <p class="p-index-problem-item__eyebrow"><%= eyebrow %></p>
+      <h3 class="p-index-problem-item__title"><%= title %></h3>
+      <p class="p-index-problem-item__sub"><%= sub %></p>
+    </div>
+  </div>
+  <div class="p-index-problem-item__body">
+    <p class="p-index-problem-item__text"><%= text %></p>
+    <% if (link) { %>
+    <%- include('common/module/text-link.ejs', link) %>
+    <% } %>
+  </div>
+</div>

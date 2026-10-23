@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixins" as *;
+
+.p-index-problems {
+  padding: 6.4rem 2rem 0;
+
+  @include mq("md") {
+    padding: 8rem 4rem 0;
+  }
+
+  @include mq("lg") {
+    padding: 10.4rem max(4rem, calc((100% - 108rem) / 2)) 0;
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 3.2rem;
+    margin-top: 3.2rem;
+    padding-top: 3.2rem;
+    border-top: 1px solid map.get(v.$color, border-secondary);
+
+    @include mq("lg") {
+      row-gap: 4rem;
+      margin-top: 3.9rem;
+      padding-top: 4rem;
+    }
+  }
+
+  &__item + &__item {
+    padding-top: calc(3.2rem + 2px);
+    background: linear-gradient(to right, map.get(v.$color, border-secondary) 2px, transparent 2px) 7px 0 / 8px 2px repeat-x;
+
+    @include mq("lg") {
+      padding-top: calc(4rem + 2px);
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 5.1rem;
+    height: 5.1rem;
+    margin: 4rem auto -2.5rem;
+
+    @include mq("lg") {
+      margin-top: 5.2rem;
+    }
+  }
+}

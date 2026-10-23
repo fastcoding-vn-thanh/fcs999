@@ -1,0 +1,16 @@
+{"event":"reviewed","date":"2026-10-23","file":"src/html/pages/_components/problems.ejs","sha":"7a94fee68742","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/html/pages/_components/problem-item.ejs","sha":"08eefca03582","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/html/common/module/section-heading.ejs","sha":"ea96ef7d8f25","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/html/common/module/text-link.ejs","sha":"ac99d81b8983","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/html/common/parts/banner.ejs","sha":"b76be8d83f59","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/scss/page/index/_problems.scss","sha":"3c9e300b7162","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/scss/page/index/_problem-item.scss","sha":"07e194884be0","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/scss/object/component/_section-heading.scss","sha":"8d1e3dced045","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/scss/object/component/_text-link.scss","sha":"7b7835b5f2b9","run":"2026-10-23-top/problems"}
+{"event":"reviewed","date":"2026-10-23","file":"src/scss/object/project/_banner.scss","sha":"8f56656b72dc","run":"2026-10-23-top/problems"}
+{"id":"F-1","event":"found","date":"2026-10-23","file":"src/html/common/parts/banner.ejs","sha":"b76be8d83f59","rule":"TPL-06","severity":"MUST","what":"Include of common/module/button-more.ejs, a file that does not exist, behind an optional button local.","fix":"Drop the button local until the component exists.","line":20,"run":"2026-10-23-top/problems"}
+{"id":"F-2","event":"found","date":"2026-10-23","file":"src/scss/object/component/_text-link.scss","sha":"7b7835b5f2b9","rule":"LAY-01","severity":"MUST","what":"Hover rule with no :focus-visible on the same element.","fix":"Add &:focus-visible beside &:hover.","line":15,"run":"2026-10-23-top/problems"}
+{"id":"F-3","event":"found","date":"2026-10-23","file":"src/scss/page/index/_problems.scss","sha":"3c9e300b7162","rule":"LAY-02","severity":"SHOULD","what":"Literal #000 for the divider colour (also line 30, and _problem-item.scss line 92) although token border-secondary exists.","fix":"Use map.get(v.$color, border-secondary).","line":19,"run":"2026-10-23-top/problems"}
+{"ref":"F-1","event":"fixed","date":"2026-10-23","sha":"b76be8d83f59"}
+{"ref":"F-2","event":"fixed","date":"2026-10-23","sha":"7b7835b5f2b9"}
+{"ref":"F-3","event":"fixed","date":"2026-10-23","sha":"3c9e300b7162"}

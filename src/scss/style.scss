@@ -29,6 +29,11 @@
 @use "object/component/breadcrumb";
 @use "object/component/button-contact";
 @use "object/component/form-field";
+@use "object/component/section-heading";
+@use "object/component/text-link";
+@use "object/project/banner";
 @use "object/utility/visibility";
 
 @use "page/index/hero";
+@use "page/index/problems";
+@use "page/index/problem-item";

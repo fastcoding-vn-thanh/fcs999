@@ -1,0 +1,18 @@
+<%
+  const tag = locals.tag ?? 'section';
+  const titleTag = locals.titleTag ?? 'h2';
+  const id = locals.id ?? '';
+  const eyebrow = locals.eyebrow ?? '';
+  const title = locals.title;
+  const text = locals.text ?? [];
+  const paragraphs = (Array.isArray(text) ? text : [text]).filter(Boolean);
+%>
+<<%= tag %> class="p-banner"<% if (tag === 'section' && id) { %> aria-labelledby="<%= id %>"<% } %>>
+  <% if (eyebrow) { %>
+  <p class="p-banner__eyebrow"><%= eyebrow %></p>
+  <% } %>
+  <<%= titleTag %> class="p-banner__title"<% if (id) { %> id="<%= id %>"<% } %>><%= title %></<%= titleTag %>>
+  <% paragraphs.forEach((paragraph) => { %>
+  <p class="p-banner__text"><%= paragraph %></p>
+  <% }) %>
+</<%= tag %>>

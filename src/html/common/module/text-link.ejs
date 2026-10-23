@@ -1,0 +1,17 @@
+<%
+  const label = locals.label;
+  const href = locals.href ?? '#';
+  const placeholder = href === '#' ? 'data-placeholder' : '';
+%>
+<a class="c-text-link" href="<%= href %>" <%= placeholder %>>
+  <img
+    class="c-text-link__icon"
+    src="<%= path %>/img/common/icn_arrow_text_link.svg"
+    alt="Arrow"
+    width="21"
+    height="11"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <%= label %>
+</a>

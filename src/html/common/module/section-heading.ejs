@@ -1,0 +1,24 @@
+<%
+  const eyebrow = locals.eyebrow ?? '';
+  const title = locals.title;
+  const numeral = locals.numeral ?? '';
+  const lead = locals.lead ?? [];
+  const id = locals.id ?? '';
+  const size = locals.size ?? 'lg';
+  const rule = locals.rule ?? true;
+  const theme = locals.theme ?? 'light';
+  const titleParts = numeral ? title.split('{n}') : [title];
+  const leads = (Array.isArray(lead) ? lead : [lead]).filter(Boolean);
+  const sizeClass = size === 'md' ? 'c-section-heading--md' : '';
+  const ruleClass = rule ? 'c-section-heading--rule' : '';
+  const themeClass = theme === 'dark' ? 'c-section-heading--dark' : '';
+%>
+<div class="c-section-heading <%= sizeClass %> <%= ruleClass %> <%= themeClass %>">
+  <% if (eyebrow) { %>
+  <p class="c-section-heading__eyebrow"><%= eyebrow %></p>
+  <% } %>
+  <h2 class="c-section-heading__title"<% if (id) { %> id="<%= id %>"<% } %>><%= titleParts[0] %><% if (numeral) { %><span class="c-section-heading__numeral"><%= numeral %></span><%= titleParts[1] ?? '' %><% } %></h2>
+  <% leads.forEach((paragraph) => { %>
+  <p class="c-section-heading__lead"><%= paragraph %></p>
+  <% }) %>
+</div>

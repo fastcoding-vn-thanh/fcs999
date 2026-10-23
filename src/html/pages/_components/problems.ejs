@@ -1,6 +1,66 @@
-<%#
-  Section : problems
-  Page    : / (top)
-  Figma   : 1517:3796
-  Status  : not generated
+<%
+  const items = [
+    {
+      number: '01',
+      eyebrow: 'Quality Consistency',
+      title: '品質が揃わない',
+      sub: 'AIで1画面は作れても、サイト全体の品質は揃わない',
+      text: '与えられた一画面をそれらしく再現できても、ページ間、画面幅、状態、共通部品の関係までは自動的に理解できません。',
+      link: { label: 'サイト全体の品質が揃わない理由を見る', href: '#' },
+    },
+    {
+      number: '02',
+      eyebrow: 'Scaling Risk',
+      title: '破綻するリスク',
+      sub: '小規模では直せても、大規模では破綻する',
+      text: 'しかし、ページ、共通部品、画面幅、例外状態の組み合わせが増えると、一つの修正が別ページへ波及し、影響範囲と再確認の対象を追えなくなります。',
+      link: { label: '大規模サイトで破綻する理由を見る', href: '#' },
+    },
+    {
+      number: '03',
+      eyebrow: 'AI Limitations',
+      title: '完結できない',
+      sub: 'AIだけでは、判断を伴う品質確認まで完結できない',
+      text: '一方で、デザイン意図、レスポンシブ時の見せ方、例外対応、共通化の境界、ページ間の整合性、納品可否には、人の判断が必要です。',
+      link: { label: 'AIに丸投げしない理由を見る', href: '#' },
+    },
+  ];
 %>
+<section class="p-index-problems" aria-labelledby="problems-title">
+  <%- include('common/module/section-heading.ejs', {
+    id: 'problems-title',
+    eyebrow: 'PROBLEMS',
+    title: 'AIコーディングを実案件で使い切れない、{n}つの理由',
+    numeral: '3',
+    lead: [
+      'AIは、一つの画面の再現や反復実装を高速化できます。',
+      'しかし実案件では、サイト全体の一貫性、規模が増えた際の変更管理、デザイン意図や納品可否の判断まで必要です。画面単位でコードを生成するだけでは、ここまでを成立させられません。',
+    ],
+  }) %>
+  <ul class="p-index-problems__list">
+    <% items.forEach((item) => { %>
+    <li class="p-index-problems__item">
+      <%- include('_components/problem-item.ejs', item) %>
+    </li>
+    <% }) %>
+  </ul>
+  <img
+    class="p-index-problems__arrow"
+    src="<%= path %>/img/top/icn_arrow_down.svg"
+    alt="Arrow"
+    width="51"
+    height="51"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <%- include('common/parts/banner.ejs', {
+    tag: 'div',
+    titleTag: 'h3',
+    eyebrow: 'IMPACT',
+    title: 'AIの速さが、確認と手直しの負担に変わる',
+    text: [
+      'ページごとのばらつきや修正の波及を放置すると、生成後の確認と手直しが増え、AIで速く作った分の効果が失われます。',
+      '問題はAIの性能ではなく、サイト全体の品質を揃える工程がないことです。必要なのは、AIにコードを書かせることではなく、サイト全体を完成させる制作Workflowです。',
+    ],
+  }) %>
+</section>
