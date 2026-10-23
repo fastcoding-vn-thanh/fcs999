@@ -1254,6 +1254,14 @@ body {
   left: 0;
   background-color: var(--color-bg-primary);
 }
+.p-index-decoration__frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 144rem;
+  margin-left: -72rem;
+}
 .p-index-decoration__word,
 .p-index-decoration__circle {
   position: absolute;
