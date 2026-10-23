@@ -127,6 +127,13 @@ body {
     font-size: 1.6rem;
   }
 }
+@media screen and (max-width: 47.99rem) {
+  body {
+    word-break: auto-phrase;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+}
 @media print {
   html {
     -webkit-print-color-adjust: exact;
@@ -178,7 +185,7 @@ body {
   display: flex;
   align-items: center;
   height: 5.6rem;
-  padding: 0 1.2rem;
+  padding: 0 2rem;
   background-color: #fff;
   font-family: var(--font-en);
   font-weight: 700;
@@ -188,10 +195,20 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  left: 13.4rem;
+  left: 14.2rem;
   height: 5.6rem;
   background-color: var(--color-header);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 4.8rem 100%);
+}
+@media (min-width: 48rem) {
+  .l-header {
+    padding: 0 4rem;
+  }
+}
+@media print {
+  .l-header {
+    padding: 0 4rem;
+  }
 }
 @media (min-width: 64rem) {
   .l-header {
@@ -378,7 +395,17 @@ body {
   position: relative;
   max-width: 112rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
+}
+@media (min-width: 48rem) {
+  .l-footer__inner {
+    padding: 0 4rem;
+  }
+}
+@media print {
+  .l-footer__inner {
+    padding: 0 4rem;
+  }
 }
 @media (min-width: 80rem) {
   .l-footer__inner {
@@ -1979,27 +2006,27 @@ body {
   position: relative;
   isolation: isolate;
   margin: 6.4rem 1rem 0;
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   border-radius: 2.4rem;
 }
 @media (min-width: 48rem) {
   .p-index-quality {
     margin: 8rem 2rem 0;
-    padding: 6rem 4rem;
+    padding: 6rem 2rem;
     border-radius: 4rem;
   }
 }
 @media print {
   .p-index-quality {
     margin: 8rem 2rem 0;
-    padding: 6rem 4rem;
+    padding: 6rem 2rem;
     border-radius: 4rem;
   }
 }
 @media (min-width: 64rem) {
   .p-index-quality {
     margin: 10.4rem max(2rem, (100% - 124rem)/2) 0;
-    padding: 8rem 4rem;
+    padding: 8rem 2rem;
   }
 }
 @media (min-width: 80rem) {

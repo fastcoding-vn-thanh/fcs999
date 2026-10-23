@@ -22,7 +22,11 @@
     position: relative;
     max-width: 112rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
+
+    @include mq("md") {
+      padding: 0 4rem;
+    }
 
     @include mq("xl") {
       padding: 0 2rem;

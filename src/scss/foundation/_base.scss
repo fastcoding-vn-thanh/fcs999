@@ -54,6 +54,16 @@ body {
   }
 }
 
+/* Small screen only: break Japanese at phrase boundaries so a line never ends on a single
+ * stranded character. Not on the PC view, where line breaks follow the design's own wrapping. */
+@media screen and (max-width: 47.99rem) {
+  body {
+    word-break: auto-phrase;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+}
+
 /* Print is the PC view: smaller text, backgrounds kept. */
 @media print {
   html {

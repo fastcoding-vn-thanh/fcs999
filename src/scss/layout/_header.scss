@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   height: 5.6rem;
-  padding: 0 1.2rem;
+  padding: 0 2rem;
   background-color: #fff;
   font-family: map.get(v.$font, en);
   font-weight: 700;
@@ -22,10 +22,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    left: 13.4rem;
+    left: 14.2rem;
     height: 5.6rem;
     background-color: map.get(v.$color, header);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 4.8rem 100%);
+  }
+
+  @include mq("md") {
+    padding: 0 4rem;
   }
 
   @include mq("lg") {
